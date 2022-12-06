@@ -40,6 +40,7 @@ body {
   border-top: 1px solid rgb(0 0 0 / 6%);
 }
 /* ====================== */
+/* ALLINITEMS COMPONENT */
 .radio-toolbar {
   margin: 5px 0px;
   display: flex;
@@ -69,4 +70,18 @@ body {
 .radio-toolbar input[type="radio"]:checked + label {
     background-color: #bfb;
     border-color: #4c4;
+}
+
+/* SPACING COMPONENT */
+
+
+.spacing_wrapper ul li{
+  display: inline-block;
+
+}
+.spacing_wrapper input[type="number"]{
+  padding: 3px 0px 3px 7px;
+}
+.spacing_wrapper ul li input{
+  width: 50px;
 }

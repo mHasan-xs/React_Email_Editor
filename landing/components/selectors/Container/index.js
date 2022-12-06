@@ -21,6 +21,8 @@ export const Container = (props) => {
     children,
     selectedAlign,
     selectedJustify,
+    MarginSpacing,
+    PaddingSpacing,
   } = props;
 
   return (
@@ -43,8 +45,8 @@ export const Container = (props) => {
                   alignItems: selectedAlign,
                   background: `rgba(${Object.values(background)})`,
                   color: `rgba(${Object.values(color)})`,
-                  padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
-                  margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+                  padding: `${PaddingSpacing?.Top}px ${PaddingSpacing?.Right}px ${PaddingSpacing?.Bottom}px ${PaddingSpacing?.Left}px`,
+                  margin: `${MarginSpacing?.Top}px ${MarginSpacing?.Right}px ${MarginSpacing?.Bottom}px ${MarginSpacing?.Left}px`,
                   boxShadow:
                     shadow === 0
                       ? "none"
