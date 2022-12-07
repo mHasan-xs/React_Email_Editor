@@ -2,6 +2,13 @@ import React from "react";
 import { ToolbarSection, ToolbarItem } from "../../editor";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
+
+import {
+  AiOutlineAlignRight,
+  AiOutlineAlignLeft,
+  AiOutlineAlignCenter,
+} from "react-icons/ai";
 
 export const DividerSettings = () => {
   return (
@@ -28,9 +35,28 @@ export const DividerSettings = () => {
           type="radio"
           label="Justify Content"
         >
-          <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
+          <AlignItems
+            options={[
+              {
+                id: "just_start",
+                name: "justifyContent",
+                value: "flex-start",
+                Icon: <AiOutlineAlignLeft />,
+              },
+              {
+                id: "just_center",
+                name: "justifyContent",
+                value: "center",
+                Icon: <AiOutlineAlignCenter />,
+              },
+              {
+                id: "just_end",
+                name: "justifyContent",
+                value: "flex-end",
+                Icon: <AiOutlineAlignRight />,
+              },
+            ]}
+          />
         </ToolbarItem>
       </ToolbarSection>
       <ToolbarSection title="Margin" props={["margin"]}>

@@ -1,8 +1,14 @@
 import React from "react";
 import { ToolbarSection, ToolbarItem } from "../../editor";
-import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import ImageActions from "./ImageActions";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
+
+import {
+  AiOutlineAlignRight,
+  AiOutlineAlignLeft,
+  AiOutlineAlignCenter,
+} from "react-icons/ai";
 
 const ImageContainerSettings = ({ handleUploader }) => {
   return (
@@ -21,32 +27,7 @@ const ImageContainerSettings = ({ handleUploader }) => {
         <ToolbarItem propKey="width" type="text" label="Width" />
         <ToolbarItem propKey="height" type="text" label="Height" />
       </ToolbarSection>
-      <ToolbarSection
-        title="Colors"
-        props={["background", "color"]}
-        summary={({ background, color }) => {
-          return (
-            <div className="flex flex-row-reverse">
-              <div
-                style={{
-                  background:
-                    background && `rgba(${Object.values(background)})`,
-                }}
-                className="shadow-md flex-end w-6 h-6 text-center flex items-center rounded-full bg-black"
-              >
-                <p
-                  style={{
-                    color: color && `rgba(${Object.values(color)})`,
-                  }}
-                  className="text-white w-full text-center"
-                >
-                  T
-                </p>
-              </div>
-            </div>
-          );
-        }}
-      >
+      <ToolbarSection title="Colors" props={["background", "color"]}>
         <ToolbarItem
           full={true}
           propKey="background"
@@ -76,31 +57,57 @@ const ImageContainerSettings = ({ handleUploader }) => {
         />
       </ToolbarSection>
       <ToolbarSection title="Alignment">
-        <ToolbarItem
-          propKey="flexDirection"
-          type="radio"
-          label="Flex Direction"
-        >
-          <ToolbarRadio value="row" label="Row" />
-          <ToolbarRadio value="column" label="Column" />
-        </ToolbarItem>
-        <ToolbarItem propKey="fillSpace" type="radio" label="Fill space">
-          <ToolbarRadio value="yes" label="Yes" />
-          <ToolbarRadio value="no" label="No" />
-        </ToolbarItem>
         <ToolbarItem propKey="alignItems" type="radio" label="Align Items">
-          <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
+          <AlignItems
+            options={[
+              {
+                id: "start",
+                name: "alignItems",
+                value: "flex-start",
+                Icon: <AiOutlineAlignLeft />,
+              },
+              {
+                id: "center",
+                name: "alignItems",
+                value: "center",
+                Icon: <AiOutlineAlignCenter />,
+              },
+              {
+                id: "end",
+                name: "alignItems",
+                value: "flex-end",
+                Icon: <AiOutlineAlignRight />,
+              },
+            ]}
+          />
         </ToolbarItem>
         <ToolbarItem
           propKey="justifyContent"
           type="radio"
           label="Justify Content"
         >
-          <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
+          <AlignItems
+            options={[
+              {
+                id: "just_start",
+                name: "justifyContent",
+                value: "flex-start",
+                Icon: <AiOutlineAlignLeft />,
+              },
+              {
+                id: "just_center",
+                name: "justifyContent",
+                value: "center",
+                Icon: <AiOutlineAlignCenter />,
+              },
+              {
+                id: "just_end",
+                name: "justifyContent",
+                value: "flex-end",
+                Icon: <AiOutlineAlignRight />,
+              },
+            ]}
+          />
         </ToolbarItem>
       </ToolbarSection>
     </>

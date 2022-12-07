@@ -5,16 +5,6 @@ import { VscTriangleRight } from "react-icons/vsc";
 
 export const VideoBlock = (props) => {
   const { picture, actions } = props;
-  const [isHover, setIsHover] = useState(false);
-
-  // FOR HOVER => START
-  const handleMouseEnter = () => {
-    setIsHover(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHover(false);
-  };
-  // FOR HOVER => END
 
   const {
     connectors: { connect },
@@ -43,8 +33,6 @@ export const VideoBlock = (props) => {
         borderCollapse: "collapse",
         position: "relative",
       }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <tr>
         <td>
@@ -59,7 +47,6 @@ export const VideoBlock = (props) => {
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: "12%",
-                // backgroundColor: isHover ? "red" : " rgba(0, 0, 0, 0.5)",
                 backgroundColor: " rgba(0, 0, 0, 0.5)",
               }}
             >

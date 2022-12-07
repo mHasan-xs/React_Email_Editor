@@ -95,7 +95,7 @@ export const Viewport = ({ children }) => {
             </div>
           </div>
         </div>
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
 import React from "react";
 import { ToolbarSection, ToolbarItem } from "../../editor";
-import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
 
-import { AiOutlineAlignRight } from "react-icons/ai";
-import { AiOutlineAlignLeft } from "react-icons/ai";
-import { AiOutlineAlignCenter } from "react-icons/ai";
+import {
+  AiOutlineAlignRight,
+  AiOutlineAlignLeft,
+  AiOutlineAlignCenter,
+} from "react-icons/ai";
 
 export const ContainerSettings = () => {
   return (
