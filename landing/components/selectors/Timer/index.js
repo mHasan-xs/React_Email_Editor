@@ -20,7 +20,8 @@ const Timer = ({ expiryTimestamp, fontSize, justifyContent }) => {
         justifyContent: "space-between",
         alignItems: "center",
         flexWrap: "wrap",
-        padding: `${AccessPadding[0]}px ${AccessPadding[1]}px ${AccessPadding[2]}px ${AccessPadding[3]}px`,
+        // padding: `${AccessPadding[0]}px ${AccessPadding[1]}px ${AccessPadding[2]}px ${AccessPadding[3]}px`,
+        padding: `${AccessPadding?.Top}px ${AccessPadding?.Right}px ${AccessPadding?.Bottom}px ${AccessPadding?.Left}px`,
       }}
     >
       <tr>
@@ -77,8 +78,8 @@ export const CountDownTimer = (props) => {
 
   const {
     fontSize,
-    margin,
-    padding,
+    Margin,
+    Padding,
     fontWeight,
     background,
     color,
@@ -87,7 +88,7 @@ export const CountDownTimer = (props) => {
     justifyContent,
   } = props;
 
-  AccessPadding = padding;
+  AccessPadding = Padding;
 
   // Set Time
   const time = new Date();
@@ -102,8 +103,8 @@ export const CountDownTimer = (props) => {
         fontWeight,
         background: `rgba(${Object.values(background)})`,
         color: `rgba(${Object.values(color)})`,
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
-        padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
+        padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
       }}
     >
       <Timer

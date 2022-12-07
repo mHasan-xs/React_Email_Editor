@@ -4,6 +4,16 @@ import { ToolbarSection, ToolbarItem } from "../../editor";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { inputValidation } from "../../../helpers/Validation";
 import { useNode } from "@craftjs/core";
+import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
+
+// ICON
+import {
+  AiOutlineAlignRight,
+  AiOutlineAlignLeft,
+  AiOutlineAlignCenter,
+} from "react-icons/ai";
+import { MdOutlineFormatAlignCenter } from "react-icons/md";
 
 export const SocialSetting = (props) => {
   const [card, setCard] = useState([]);
@@ -102,40 +112,79 @@ export const SocialSetting = (props) => {
         <ToolbarItem propKey="flexDirection" type="radio" label=" ">
           <ToolbarRadio value="column" label="Column" />
         </ToolbarItem>
-        <ToolbarItem propKey="alignItems" type="radio" label="Align Items">
-          <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
-          <ToolbarRadio value="space-between" label="Between" />
-          <ToolbarRadio value="space-evenly" label="Evenly" />
-          <ToolbarRadio value="space-around" label="Around" />
+        <ToolbarItem
+          propKey="alignItems"
+          type="radio"
+          label="Align Items"
+          full={true}
+        >
+          <AlignItems
+            options={[
+              {
+                id: "start",
+                name: "alignItems",
+                value: "flex-start",
+                Icon: <AiOutlineAlignLeft />,
+              },
+              {
+                id: "center",
+                name: "alignItems",
+                value: "center",
+                Icon: <AiOutlineAlignCenter />,
+              },
+              {
+                id: "end",
+                name: "alignItems",
+                value: "flex-end",
+                Icon: <AiOutlineAlignRight />,
+              },
+              {
+                id: "evenly",
+                name: "alignItems",
+                value: "space-evenly",
+                Icon: <MdOutlineFormatAlignCenter />,
+              },
+            ]}
+          />
         </ToolbarItem>
         <ToolbarItem
           propKey="justifyContent"
           type="radio"
           label="Justify Content"
+          full={true}
         >
-          <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
-          <ToolbarRadio value="space-between" label="Between" />
-          <ToolbarRadio value="space-evenly" label="Evenly" />
-          <ToolbarRadio value="space-around" label="Around" />
+          <AlignItems
+            options={[
+              {
+                id: "just_start",
+                name: "justifyContent",
+                value: "flex-start",
+                Icon: <AiOutlineAlignLeft />,
+              },
+              {
+                id: "just_center",
+                name: "justifyContent",
+                value: "center",
+                Icon: <AiOutlineAlignCenter />,
+              },
+              {
+                id: "just_end",
+                name: "justifyContent",
+                value: "flex-end",
+                Icon: <AiOutlineAlignRight />,
+              },
+              {
+                id: "just_evenly",
+                name: "justifyContent",
+                value: "space-evenly",
+                Icon: <MdOutlineFormatAlignCenter />,
+              },
+            ]}
+          />
         </ToolbarItem>
       </ToolbarSection>
-      <ToolbarSection
-        title="Margin"
-        props={["margin"]}
-        summary={({ margin }) => {
-          return `${margin[0] || 0}px ${margin[1] || 0}px ${margin[2] || 0}px ${
-            margin[3] || 0
-          }px`;
-        }}
-      >
-        <ToolbarItem propKey="margin" index={0} type="slider" label="Top" />
-        <ToolbarItem propKey="margin" index={1} type="slider" label="Right" />
-        <ToolbarItem propKey="margin" index={2} type="slider" label="Bottom" />
-        <ToolbarItem propKey="margin" index={3} type="slider" label="Left" />
+      <ToolbarSection title="Margin" props={["margin"]}>
+        <SpacingItem title="Margin" />
       </ToolbarSection>
       <ToolbarSection title="Icons">
         {card.length > 0 && (

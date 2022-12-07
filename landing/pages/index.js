@@ -19,6 +19,8 @@ import { ColumnFour } from "components/selectors/column/ColumnFour";
 import { ColumnFive } from "components/selectors/column/ColumnFive";
 import { ColumnSix } from "components/selectors/column/ColumnSix";
 import { ImageComponent } from "components/selectors/ImageComponent";
+import { TabBody } from "../components/selectors/TabPannel/TabBody";
+import { TopTabPanel } from "../components/selectors/TabPannel/TopTabPanel";
 import TabPannel from "../components/selectors/TabPannel/TabPanel";
 import { List } from "components/selectors/List";
 import { CanvasContainer } from "components/selectors/CanvasContainer";
@@ -84,7 +86,8 @@ const App = () => {
             ColumnFour,
             ColumnFive,
             ColumnSix,
-            TabPannel,
+            TabBody,
+            TopTabPanel,
           }}
           enabled={false}
           onRender={RenderNode}

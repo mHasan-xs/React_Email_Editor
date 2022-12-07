@@ -5,6 +5,7 @@ import cx from "classnames";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import TabPannel from "../../selectors/TabPannel/TabPanel";
+import { TopTabPanel } from "../../selectors/TabPannel/TopTabPanel";
 
 export const Viewport = ({ children }) => {
   const htmlref = useRef(null);
@@ -56,6 +57,7 @@ export const Viewport = ({ children }) => {
       <div
         className={cx(["flex h-full overflow-hidden flex-row w-full fixed"])}
       >
+        <TopTabPanel />
         <div className="page-container flex flex-1 h-full flex-col">
           <Header htmlExport={htmlref} />
 
@@ -73,7 +75,7 @@ export const Viewport = ({ children }) => {
             ])}
             ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
           >
-            <TabPannel />
+            {/* <TabPannel /> */}
             <div>
               <table
                 style={{
@@ -83,6 +85,8 @@ export const Viewport = ({ children }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  marginLeft: "220px",
+                  marginTop: "32px",
                 }}
                 ref={htmlref}
               >
@@ -91,7 +95,7 @@ export const Viewport = ({ children }) => {
             </div>
           </div>
         </div>
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </div>
   );

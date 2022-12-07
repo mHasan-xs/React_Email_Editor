@@ -14,15 +14,11 @@ export const Container = (props) => {
     fillSpace,
     background,
     color,
-    padding,
-    margin,
     shadow,
     radius,
     children,
-    selectedAlign,
-    selectedJustify,
-    MarginSpacing,
-    PaddingSpacing,
+    Margin,
+    Padding,
   } = props;
 
   return (
@@ -40,13 +36,13 @@ export const Container = (props) => {
               <Resizer
                 propKey={{ width: "width", height: "height" }}
                 style={{
-                  justifyContent: selectedJustify,
+                  justifyContent: justifyContent,
                   flexDirection,
-                  alignItems: selectedAlign,
+                  alignItems: alignItems,
                   background: `rgba(${Object.values(background)})`,
                   color: `rgba(${Object.values(color)})`,
-                  padding: `${PaddingSpacing?.Top}px ${PaddingSpacing?.Right}px ${PaddingSpacing?.Bottom}px ${PaddingSpacing?.Left}px`,
-                  margin: `${MarginSpacing?.Top}px ${MarginSpacing?.Right}px ${MarginSpacing?.Bottom}px ${MarginSpacing?.Left}px`,
+                  padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
+                  margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
                   boxShadow:
                     shadow === 0
                       ? "none"

@@ -13,6 +13,7 @@ export const SidebarDiv = styled.div`
   width: 300px;
   opacity: ${(props) => (props.enabled ? 1 : 0)};
   background: #fff;
+  height: 100%;
   margin-right: ${(props) => (props.enabled ? 0 : -280)}px;
 `;
 

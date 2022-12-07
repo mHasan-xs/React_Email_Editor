@@ -20,8 +20,8 @@ export const Text = (props) => {
     color,
     shadow,
     text,
-    margin,
-    padding,
+    Margin,
+    Padding,
     tranformText,
   } = props;
 
@@ -37,8 +37,8 @@ export const Text = (props) => {
       tagName="p"
       style={{
         width: "100%",
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
-        padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
+        padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
         color: `rgba(${Object.values(color)})`,
         fontSize: `${fontSize}px`,
         textShadow: `2px 2px 2px rgba(0,0,0,${(shadow || 0) / 100})`,

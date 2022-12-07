@@ -10,6 +10,7 @@ export const ColumnThree = (props) => {
     Background,
     PaddingStyle = [],
     BorderStyle = "",
+    Margin,
   } = props;
   const { BorderType, color, radius } = BorderStyle;
 
@@ -32,6 +33,7 @@ export const ColumnThree = (props) => {
           color || "#000"
         )})`,
         background: `${Background ? `rgba(${Object.values(Background)})` : ""}`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
       }}
     >
       <tbody>
@@ -40,7 +42,7 @@ export const ColumnThree = (props) => {
             style={{
               width: "33.33%",
               textAlign: "center",
-              padding: `${PaddingStyle[0]}px ${PaddingStyle[1]}px ${PaddingStyle[2]}px ${PaddingStyle[3]}px`,
+              padding: `${PaddingStyle?.Top}px ${PaddingStyle?.Right}px ${PaddingStyle?.Bottom}px ${PaddingStyle?.Left}px`,
             }}
           >
             <Resizable>
@@ -53,7 +55,7 @@ export const ColumnThree = (props) => {
             style={{
               width: "33.33%",
               textAlign: "center",
-              padding: `${PaddingStyle[0]}px ${PaddingStyle[1]}px ${PaddingStyle[2]}px ${PaddingStyle[3]}px`,
+              padding: `${PaddingStyle?.Top}px ${PaddingStyle?.Right}px ${PaddingStyle?.Bottom}px ${PaddingStyle?.Left}px`,
             }}
           >
             <Resizable>
@@ -66,7 +68,7 @@ export const ColumnThree = (props) => {
             style={{
               width: "33.33%",
               textAlign: "center",
-              padding: `${PaddingStyle[0]}px ${PaddingStyle[1]}px ${PaddingStyle[2]}px ${PaddingStyle[3]}px`,
+              padding: `${PaddingStyle?.Top}px ${PaddingStyle?.Right}px ${PaddingStyle?.Bottom}px ${PaddingStyle?.Left}px`,
             }}
           >
             <Resizable>

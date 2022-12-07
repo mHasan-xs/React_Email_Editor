@@ -9,12 +9,7 @@ export const AlignItems = ({ options }) => {
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
-    if (options[0]?.name == "alignItem") {
-      setProp((props) => (props.selectedAlign = event.target.value));
-    }
-    if (options[0]?.name == "justifyContent") {
-      setProp((props) => (props.selectedJustify = event.target.value));
-    }
+    setProp((props) => (props[options[0].name] = event.target.value));
   };
 
   return (

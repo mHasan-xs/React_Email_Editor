@@ -26,7 +26,7 @@ export const VideoBlock = (props) => {
   let previousImage =
     "https://img.freepik.com/premium-photo/image-planet-outer-space-mixed-media-elements-image-furnished-by-nasa_641298-3434.jpg";
 
-  const { margin, width, minHeight } = props;
+  const { Margin, width, minHeight } = props;
 
   return (
     <table
@@ -35,7 +35,7 @@ export const VideoBlock = (props) => {
         width: `${width == "100%" ? width : `${width}%`}`,
         minHeight,
         backgroundSize: "cover",
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
         backgroundImage: `url(${picture ? picture : previousImage})`,
         display: "flex",
         justifyContent: "center",

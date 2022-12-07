@@ -29,7 +29,7 @@ export const SocialIcon = (props) => {
 
   const {
     fontSize,
-    margin,
+    Margin,
     fontWeight,
     color,
     textAlign,
@@ -56,8 +56,8 @@ export const SocialIcon = (props) => {
           style={{
             display: "flex",
             flexDirection,
-            alignItems,
-            justifyContent,
+            alignItems: alignItems,
+            justifyContent: justifyContent,
             flexWrap: "wrap",
           }}
         >
@@ -69,7 +69,7 @@ export const SocialIcon = (props) => {
                       src={item.icon}
                       style={{
                         width,
-                        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+                        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
                         color: `rgba(${Object.values(color)})`,
                         fontSize: `${fontSize}px`,
                         fontWeight,

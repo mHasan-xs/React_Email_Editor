@@ -7,7 +7,7 @@ export const ImageComponent = (props) => {
   let previousImage =
     "https://img.freepik.com/premium-photo/image-planet-outer-space-mixed-media-elements-image-furnished-by-nasa_641298-3434.jpg";
 
-  const { image, margin, shadow, width, height } = props;
+  const { image, Margin, shadow, width, height } = props;
 
   const {
     connectors: { connect },
@@ -20,7 +20,7 @@ export const ImageComponent = (props) => {
       ref={connect}
       style={{
         width: "100%",
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
         borderCollapse: "collapse",
       }}
     >

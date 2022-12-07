@@ -34,7 +34,7 @@ const ToolboxDiv = styled.div`
 
 const Item = styled.a`
   svg {
-    width: 60px;
+    width: 110px;
     height: 30px;
     fill: #707070;
   }

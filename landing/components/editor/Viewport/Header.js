@@ -91,20 +91,6 @@ export const Header = ({ htmlExport }) => {
   return (
     <HeaderDiv className="header text-white transition w-full">
       <div className="items-center flex w-full px-4 justify-end">
-        {enabled && (
-          <div className="flex-1 flex">
-            <Tooltip title="Undo" placement="bottom">
-              <Item disabled={!canUndo} onClick={() => actions.history.undo()}>
-                <UndoSvg />
-              </Item>
-            </Tooltip>
-            <Tooltip title="Redo" placement="bottom">
-              <Item disabled={!canRedo} onClick={() => actions.history.redo()}>
-                <RedoSvg />
-              </Item>
-            </Tooltip>
-          </div>
-        )}
         <div className="flex">
           <Btn
             className={cx([

@@ -10,15 +10,14 @@ export const Column = (props) => {
     columnContainer: ColumnContainer,
     background,
     color,
-    padding,
-    margin,
+    Padding,
+    Margin,
     picture,
     BorderType,
     radius,
   } = props;
 
   const BorderStyle = { BorderType, radius, color };
-
   const {
     connectors: { connect, drag },
   } = useNode((node) => ({
@@ -33,14 +32,15 @@ export const Column = (props) => {
           BackgroundPicture={picture}
           Background={background}
           BorderStyle={BorderStyle}
-          PaddingStyle={padding}
+          PaddingStyle={Padding}
+          Margin={Margin}
         />
       ) : (
         <table
           ref={connect}
           style={{
             width: "100%",
-            margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+            margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
           }}
         >
           <tr>
@@ -49,7 +49,7 @@ export const Column = (props) => {
                 width: "100%",
                 padding: "10px",
                 textAlign: "center",
-                padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+                padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
                 background: `${
                   background ? `rgba(${Object.values(background)})` : ""
                 }`,

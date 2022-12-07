@@ -25,8 +25,8 @@ export const CustomeImage = (props, e) => {
     alignItems,
     justifyContent,
     color,
-    padding,
-    margin,
+    Padding,
+    Margin,
     shadow,
     children,
     width,
@@ -50,8 +50,8 @@ export const CustomeImage = (props, e) => {
         alignItems,
         backgroundImage: `url(${picture ? picture : previousImage})`,
         color: `rgba(${Object.values(color)})`,
-        padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+        padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
         boxShadow:
           shadow === 0
             ? "none"
@@ -64,7 +64,7 @@ export const CustomeImage = (props, e) => {
             display: "flex",
             flexDirection,
             alignItems,
-            padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+            padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
           }}
         >
           {children}

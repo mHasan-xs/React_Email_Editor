@@ -22,9 +22,9 @@ export const Button = (props) => {
     color,
     buttonStyle,
     textComponent,
-    margin,
+    Margin,
     width,
-    padding,
+    Padding,
     borderColor,
     justifyContent,
     textAlign,
@@ -37,7 +37,7 @@ export const Button = (props) => {
     <table
       style={{
         borderCollapse: "collapse",
-        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
         width,
       }}
     >
@@ -58,7 +58,7 @@ export const Button = (props) => {
         <tr>
           <td
             style={{
-              padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+              padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
             }}
           >
             <a

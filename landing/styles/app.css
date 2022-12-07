@@ -46,7 +46,8 @@ body {
   display: flex;
   border: 1px solid #444;
   background-color: white;
-  width: 100px;
+  max-width: 133px;
+  min-width: 100px;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -77,11 +78,38 @@ body {
 
 .spacing_wrapper ul li{
   display: inline-block;
-
+  position: relative;
 }
 .spacing_wrapper input[type="number"]{
   padding: 3px 0px 3px 7px;
 }
+.spacing_wrapper button{
+  padding: 6px 5px;
+  margin-top: -23px;
+  position: absolute;
+  top:-20px;
+  background-color: gray;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
 .spacing_wrapper ul li input{
-  width: 50px;
+  width: 48px;
+  font-size: 14px;
+}
+.spacing_wrapper ul li p{
+  color: black;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* SEARCH OPTION */
+
+.search input[type="search"]{
+  padding: 3px 10px;
+  border:1px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNode } from "@craftjs/core";
 import {
   ExpansionPanel,
@@ -40,7 +40,6 @@ const useSummaryStyles = makeStyles((_) => ({
 }));
 
 export const ToolbarSection = ({ title, props, summary, children }) => {
-  const [expended, setExpended] = useState(true);
   const panelClasses = usePanelStyles({});
   const summaryClasses = useSummaryStyles({});
   const { nodeProps } = useNode((node) => ({
@@ -52,17 +51,8 @@ export const ToolbarSection = ({ title, props, summary, children }) => {
       }, {}),
   }));
 
-  const handleChange = (title) => {
-    if (title) {
-      setExpended(!expended);
-    }
-  };
   return (
-    <ExpansionPanel
-      classes={panelClasses}
-      onChange={() => handleChange(title)}
-      expanded={expended}
-    >
+    <ExpansionPanel classes={panelClasses} defaultExpanded>
       <ExpansionPanelSummary classes={summaryClasses}>
         <div className="px-6 w-full">
           <Grid container direction="row" alignItems="center" spacing={3}>

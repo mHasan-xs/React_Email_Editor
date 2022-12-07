@@ -42,7 +42,8 @@ export const CanvasContainer = (props) => {
     >
       <div
         style={{
-          padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+          // padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
+          padding: `20px 20px 20px 20px`,
           alignItems,
           justifyContent,
         }}

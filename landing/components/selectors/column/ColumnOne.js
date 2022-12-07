@@ -9,8 +9,11 @@ export const ColumnOne = (props) => {
     Background,
     PaddingStyle = [],
     BorderStyle = "",
+    Margin,
   } = props;
   const { BorderType, color, radius } = BorderStyle;
+
+  console.log(PaddingStyle, "aaaaaaaaaaaa");
 
   const {
     connectors: { connect },
@@ -31,6 +34,7 @@ export const ColumnOne = (props) => {
           color || ""
         )})`,
         background: `${Background ? `rgba(${Object.values(Background)})` : ""}`,
+        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
       }}
     >
       <tbody>
@@ -39,7 +43,7 @@ export const ColumnOne = (props) => {
             style={{
               textAlign: "center",
               width: "100%",
-              padding: `${PaddingStyle[0]}px ${PaddingStyle[1]}px ${PaddingStyle[2]}px ${PaddingStyle[3]}px`,
+              padding: `${PaddingStyle?.Top}px ${PaddingStyle?.Right}px ${PaddingStyle?.Bottom}px ${PaddingStyle?.Left}px`,
             }}
           >
             {children ? children : <ColumnNoContent />}

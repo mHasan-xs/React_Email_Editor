@@ -9,7 +9,7 @@ export const Divider = (props) => {
     selected: node.events.selected,
   }));
 
-  const { width, height, background, margin, justifyContent } = props;
+  const { width, height, background, Margin, justifyContent } = props;
 
   return (
     <table
@@ -26,7 +26,7 @@ export const Divider = (props) => {
           width: `${width == "100%" ? width : `${width}%`}`,
           height,
           background: `rgba(${Object.values(background)})`,
-          margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+          margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
         }}
       ></tbody>
     </table>
