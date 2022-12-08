@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import TabPannel from "../../selectors/TabPannel/TabPanel";
 import { TopTabPanel } from "../../selectors/TabPannel/TopTabPanel";
+import { Preview } from "./Preview/Preview";
 
 export const Viewport = ({ children }) => {
   const htmlref = useRef(null);
@@ -95,7 +96,7 @@ export const Viewport = ({ children }) => {
             </div>
           </div>
         </div>
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </div>
   );

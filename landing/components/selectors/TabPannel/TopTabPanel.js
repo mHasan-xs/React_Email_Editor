@@ -6,7 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Toolbox } from "../../editor/Viewport/Toolbox";
 import { TbGridDots } from "react-icons/tb";
-import { useEditor, useNode } from "@craftjs/core";
+import { useEditor } from "@craftjs/core";
 import { Tooltip } from "@material-ui/core";
 import { GrUndo, GrRedo } from "react-icons/gr";
 import { Search } from "../../editor/Toolbar/Search/Search";
@@ -48,9 +48,19 @@ export const TopTabPanel = (props) => {
   //   ========= HANDLE STYLE BAR ========
   const handleStyleBar = () => {
     setShowStyleBar(!showStyleBar);
+    setValue("1");
   };
 
-  console.log(props, "connect");
+  // =============== TESTING ============
+
+  const { dragged } = useEditor((state, query) => {
+    const currentlyDraggedNode = query.getEvent("dragged").contains();
+
+    console.log(query.getEvent("dragged").contains(), "dragged");
+    return {
+      dragged: currentlyDraggedNode,
+    };
+  });
 
   return (
     <Box
