@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNode } from "@craftjs/core";
 import { VideoSettings } from "./videoSettings";
 import { VscTriangleRight } from "react-icons/vsc";
 
 export const VideoBlock = (props) => {
-  const { picture, actions } = props;
+  const { picture, action } = props;
 
-  const {
-    connectors: { connect },
-  } = useNode((node) => ({
+  const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
@@ -34,27 +32,29 @@ export const VideoBlock = (props) => {
         position: "relative",
       }}
     >
-      <tr>
-        <td>
-          <a href={actions}>
-            <div
-              style={{
-                color: "white",
-                fontSize: "35px",
-                width: "60px",
-                height: "45px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "12%",
-                backgroundColor: " rgba(0, 0, 0, 0.5)",
-              }}
-            >
-              <VscTriangleRight />
-            </div>
-          </a>
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>
+            <a href={action ? action : "#"}>
+              <div
+                style={{
+                  color: "white",
+                  fontSize: "35px",
+                  width: "60px",
+                  height: "45px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "12%",
+                  backgroundColor: " rgba(0, 0, 0, 0.5)",
+                }}
+              >
+                <VscTriangleRight />
+              </div>
+            </a>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 };

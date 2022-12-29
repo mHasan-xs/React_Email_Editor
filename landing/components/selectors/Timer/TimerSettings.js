@@ -4,6 +4,9 @@ import { ToolbarSection, ToolbarItem } from "../../editor";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { capitalize } from "../../../utils/text";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { DropdownMenu } from "../../editor/Toolbar/Dropdown/DropdownMenu"
+import { TextAlignment } from "../../editor/Toolbar/TextAlignment"
+import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
 
 export const TimerSettings = ({ handleTime }) => {
   return (
@@ -31,28 +34,45 @@ export const TimerSettings = ({ handleTime }) => {
       <ToolbarSection
         title="Typography"
         props={["fontSize", "fontWeight", "textAlign"]}
-        summary={({ fontSize, fontWeight, textAlign }) => {
-          return `
-           ${fontSize || ""},
-           ${fontWeight},
-           ${capitalize(textAlign || "")}`;
-        }}
+      // summary={({ fontSize, fontWeight, textAlign }) => {
+      //   return `
+      //    ${fontSize || ""},
+      //    ${fontWeight},
+      //    ${capitalize(textAlign || "")}`;
+      // }}
       >
-        <ToolbarItem
+        {/* <ToolbarItem
           full={true}
           propKey="fontSize"
           type="slider"
           label="Font Size"
-        />
-        <ToolbarItem propKey="textAlign" type="radio" label="Align">
-          <ToolbarRadio value="left" label="Left" />
+        /> */}
+        <ToolbarItem propKey="textAlign" type="radio" full={true}>
+          <TextAlignment
+            options={[
+              { id: 1, name: "Left", value: "left", icon: <AiOutlineAlignLeft /> },
+              { id: 2, name: "Center", value: "center", icon: <AiOutlineAlignCenter /> },
+              { id: 3, name: "Right", value: "right", icon: <AiOutlineAlignRight /> },
+            ]}
+            title={"Align"}
+          />
+          {/* <ToolbarRadio value="left" label="Left" />
           <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="right" label="Right" />
+          <ToolbarRadio value="right" label="Right" /> */}
         </ToolbarItem>
-        <ToolbarItem propKey="fontWeight" type="radio" label="Weight">
-          <ToolbarRadio value="400" label="Regular" />
-          <ToolbarRadio value="500" label="Medium" />
-          <ToolbarRadio value="700" label="Bold" />
+        <ToolbarItem propKey="fontWeight" type="radio" full={true}>
+          <DropdownMenu
+            Options={[
+              { id: "1", name: "Default", value: "15px" },
+              { id: "2", name: "Small", value: "12px" },
+              { id: "3", name: "Medium", value: "18px" },
+              { id: "4", name: "Large", value: "22px" },
+              { id: "5", name: "XL", value: "25px" },
+              { id: "6", name: "XXL", value: "30px" },
+            ]}
+            title={"Size"}
+            propsName={"TextSize"}
+          />
         </ToolbarItem>
       </ToolbarSection>
       <ToolbarSection title="Spacing">

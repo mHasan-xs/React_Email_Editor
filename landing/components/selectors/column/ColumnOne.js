@@ -3,21 +3,10 @@ import { useNode } from "@craftjs/core";
 import ColumnNoContent from "./ColumnNoContent";
 
 export const ColumnOne = (props) => {
-  const {
-    children,
-    BackgroundPicture,
-    Background,
-    PaddingStyle = [],
-    BorderStyle = "",
-    Margin,
-  } = props;
+  const { children, BackgroundPicture, Background, PaddingStyle = [], BorderStyle = "", Margin } = props;
   const { BorderType, color, radius } = BorderStyle;
 
-  console.log(PaddingStyle, "aaaaaaaaaaaa");
-
-  const {
-    connectors: { connect },
-  } = useNode((node) => ({
+  const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 

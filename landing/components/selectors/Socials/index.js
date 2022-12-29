@@ -4,51 +4,25 @@ import { useNode } from "@craftjs/core";
 
 // Rendering value after drop from sidemenu
 const initialValues = [
-  {
-    id: 1,
-    icon: "https://i.ibb.co/56Wg7v0/icons8-facebook-35.png",
-    text: "Facebook",
-    url: "",
-  },
-  {
-    id: 2,
-    icon: "https://i.ibb.co/0V9wCBC/icons8-twitter-35.png",
-    text: "Twitter",
-    url: "",
-  },
+  { id: 1, icon: "https://i.ibb.co/56Wg7v0/icons8-facebook-35.png", text: "Facebook", url: "" },
+  { id: 2, icon: "https://i.ibb.co/0V9wCBC/icons8-twitter-35.png", text: "Twitter", url: "" },
 ];
 
 export const SocialIcon = (props) => {
   const { socialCard } = props;
 
-  const {
-    connectors: { connect },
-  } = useNode((node) => ({
+  const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
-  const {
-    fontSize,
-    Margin,
-    fontWeight,
-    color,
-    textAlign,
-    flexDirection,
-    alignItems,
-    justifyContent,
-    width,
-  } = props;
+
+  const { fontSize, Margin, fontWeight, color, textAlign, flexDirection, alignItems, justifyContent, width } = props;
 
   // DECIDE WHAT TO RENDER
   const renderCard = socialCard?.length > 0 ? socialCard : initialValues;
 
   return (
-    <table
-      ref={connect}
-      style={{
-        width: "100%",
-        borderCollapse: "collapse",
-      }}
+    <table ref={connect} style={{ width: "100%", borderCollapse: "collapse" }}
     >
       {/* Map Icon, Which Was Created From Sidebar  */}
       <tbody>
@@ -63,22 +37,22 @@ export const SocialIcon = (props) => {
         >
           {renderCard
             ? renderCard.map((item) => (
-                <td className=" m-2" key={item.id}>
-                  <a href={item.url}>
-                    <img
-                      src={item.icon}
-                      style={{
-                        width,
-                        margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
-                        color: `rgba(${Object.values(color)})`,
-                        fontSize: `${fontSize}px`,
-                        fontWeight,
-                        textAlign: `${textAlign}`,
-                      }}
-                    />
-                  </a>
-                </td>
-              ))
+              <td className=" m-2" key={item.id}>
+                <a href={item.url}>
+                  <img
+                    src={item.icon}
+                    style={{
+                      width,
+                      margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
+                      color: `rgba(${Object.values(color)})`,
+                      fontSize: `${fontSize}px`,
+                      fontWeight,
+                      textAlign: `${textAlign}`,
+                    }}
+                  />
+                </a>
+              </td>
+            ))
             : null}
         </tr>
       </tbody>

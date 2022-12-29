@@ -46,10 +46,7 @@ const Item = styled.a`
 `;
 
 export const Toolbox = () => {
-  const {
-    enabled,
-    connectors: { create },
-  } = useEditor((state) => ({
+  const { enabled, connectors: { create } } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
@@ -259,21 +256,6 @@ export const Toolbox = () => {
               move
             >
               <TimerSvg />
-            </Item>
-          </Tooltip>
-        </div>
-        <div ref={(ref) => create(ref, <List />)}>
-          <Tooltip title="Divider" placement="right">
-            <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
-              className="m-2 pb-2 cursor-pointer block"
-              move
-            >
-              <ListSvg />
             </Item>
           </Tooltip>
         </div>

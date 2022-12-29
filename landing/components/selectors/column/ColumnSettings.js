@@ -10,8 +10,11 @@ import { ToolbarSection, ToolbarItem } from "components/editor";
 import { imageValidation } from "helpers/Validation";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { toast } from "react-toastify";
-import BorderDrop from "./BorderDrop";
+// import BorderDrop from "./BorderDrop";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
+import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
+import { DropdownMenu } from "../../editor/Toolbar/Dropdown/DropdownMenu"
 
 const intialColumn = [
   {
@@ -47,14 +50,9 @@ const intialColumn = [
 ];
 
 export const ColumnSettings = (props) => {
-  const {
-    actions: { setProp },
-  } = useNode();
+  const { actions: { setProp } } = useNode();
 
-  const {
-    enabled,
-    connectors: { create },
-  } = useEditor((state) => ({
+  const { enabled, connectors: { create } } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
@@ -106,7 +104,7 @@ export const ColumnSettings = (props) => {
           ))}
         </div>
       </ToolbarSection>
-      <ToolbarSection title="Column_Properties">
+      <ToolbarSection title="Column">
         <ToolbarItem
           full={true}
           propKey="background"
@@ -127,65 +125,65 @@ export const ColumnSettings = (props) => {
             type="slider"
             label="Width"
           />
-          <BorderDrop />
+          <ToolbarItem propKey="fontWeight" type="radio" full={true}>
+            <DropdownMenu
+              Options={[
+                { id: "1", name: "None", value: "none" },
+                { id: "2", name: "Solid", value: "solid" },
+                { id: "3", name: "Dotted", value: "dotted" },
+                { id: "4", name: "Dashed", value: "dashed" },
+              ]}
+              title={"Type"}
+              propsName={"BorderType"}
+              CustomeWidth={"200px"}
+            />
+          </ToolbarItem>
         </ToolbarSection>
       </ToolbarSection>
-      <ToolbarSection title="Row_Properties">
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
-        <div
-          style={{
-            fontSize: "13px",
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <h5>Background Image</h5>
+      <ToolbarSection title="Row">
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
+        <div style={{ fontSize: "13px", display: "flex", justifyContent: "space-between", width: "100%", marginTop: '15px' }}>
+          <h5>Background</h5>
 
           <input type="file" id="actual-btn" hidden onChange={handleChange} />
           <label
-            for="actual-btn"
-            style={{
-              background: "skyblue",
-              padding: "5px 10px",
-              borderRadius: "5px",
-            }}
+            htmlFor="actual-btn"
+            style={{ background: "#4896ED", padding: "5px 10px", color: 'white' }}
           >
             Upload Image
           </label>
         </div>
       </ToolbarSection>
       <ToolbarSection title="Alignment">
-        <ToolbarItem
-          propKey="flexDirection"
-          type="radio"
-          label="Flex Direction"
-        >
+        <ToolbarItem propKey="flexDirection" type="radio" label="Flex Direction" full={true}>
           <ToolbarRadio value="row" label="Row" />
           <ToolbarRadio value="column" label="Column" />
         </ToolbarItem>
-        <ToolbarItem propKey="fillSpace" type="radio" label="Fill space">
-          <ToolbarRadio value="yes" label="Yes" />
-          <ToolbarRadio value="no" label="No" />
-        </ToolbarItem>
-        <ToolbarItem propKey="alignItems" type="radio" label="Align Items">
-          <ToolbarRadio value="flex-start" label="Flex start" />
+        <ToolbarItem propKey="alignItems" type="radio" full={true}>
+          <AlignItems
+            options={[
+              { id: "align_start", name: "alignItems", value: "flex-start", Icon: <AiOutlineAlignLeft /> },
+              { id: "align_center", name: "alignItems", value: "center", Icon: <AiOutlineAlignCenter /> },
+              { id: "align_end", name: "alignItems", value: "flex-end", Icon: <AiOutlineAlignRight /> },
+            ]}
+            title={"Align"}
+          />
+          {/* <ToolbarRadio value="flex-start" label="Flex start" />
           <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
+          <ToolbarRadio value="flex-end" label="Flex end" /> */}
         </ToolbarItem>
-        <ToolbarItem
-          propKey="justifyContent"
-          type="radio"
-          label="Justify Content"
-        >
-          <ToolbarRadio value="flex-start" label="Flex start" />
+        <ToolbarItem propKey="justifyContent" type="radio" full={true}>
+          <AlignItems
+            options={[
+              { id: "just_start", name: "justifyContent", value: "flex-start", Icon: <AiOutlineAlignLeft /> },
+              { id: "just_center", name: "justifyContent", value: "center", Icon: <AiOutlineAlignCenter /> },
+              { id: "just_end", name: "justifyContent", value: "flex-end", Icon: <AiOutlineAlignRight /> },
+            ]}
+            title={"Justify"}
+          />
+          {/* <ToolbarRadio value="flex-start" label="Flex start" />
           <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" />
+          <ToolbarRadio value="flex-end" label="Flex end" /> */}
         </ToolbarItem>
       </ToolbarSection>
     </>

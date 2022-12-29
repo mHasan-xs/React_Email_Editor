@@ -3,7 +3,6 @@ import { useNode } from "@craftjs/core";
 import { Grid, Slider, RadioGroup } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { ButtonAction } from "components/selectors/Button/ButtonAction";
-import ImageAction from "components/selectors/ImageBlock/ImageActions";
 import ListStyle from "./ListStyle";
 
 import { ToolbarDropdown } from "./ToolbarDropdown";
@@ -64,19 +63,10 @@ const SliderStyled = withStyles({
   },
 })(Slider);
 
-export const ToolbarItem = ({
-  full = false,
-  propKey,
-  type,
-  onChange,
-  index,
-  ...props
-}) => {
-  const {
-    actions: { setProp },
-    propValue,
-  } = useNode((node) => ({
-    propValue: node.data.props[propKey],
+
+export const ToolbarItem = ({ full = false, propKey, type, onChange, index, ...props }) => {
+  const { actions: { setProp }, propValue } = useNode((node) => ({
+    propValue: node.data.props[propKey]
   }));
   const value = Array.isArray(propValue) ? propValue[index] : propValue;
 
@@ -101,20 +91,23 @@ export const ToolbarItem = ({
         ) : type === "slider" ? (
           <>
             {props.label ? (
-              <h4 className="text-sm text-light-gray-2">{props.label}</h4>
+              <h4 className="text-sm text-light-gray-2" style={{ marginBottom: '5px' }}>{props.label}</h4>
             ) : null}
-            <SliderStyled
-              value={parseInt(value) || 0}
-              onChange={(_, value) => {
-                setProp((props) => {
-                  if (Array.isArray(propValue)) {
-                    props[propKey][index] = onChange ? onChange(value) : value;
-                  } else {
-                    props[propKey] = onChange ? onChange(value) : value;
-                  }
-                }, 1000);
-              }}
-            />
+            <div style={{ display: 'flex' }}>
+              <SliderStyled
+                value={parseInt(value) || 0}
+                onChange={(_, value) => {
+                  setProp((props) => {
+                    if (Array.isArray(propValue)) {
+                      props[propKey][index] = onChange ? onChange(value) : value;
+                    } else {
+                      props[propKey] = onChange ? onChange(value) : value;
+                    }
+                  }, 1000);
+                }}
+              />
+              <p style={widthViewStyle}>{value}</p>
+            </div>
           </>
         ) : type === "radio" ? (
           <>
@@ -170,3 +163,14 @@ export const ToolbarItem = ({
     </Grid>
   );
 };
+
+
+const widthViewStyle = {
+  width: '60px',
+  textAlign: 'center',
+  border: '1px solid gray',
+  marginLeft: '30px',
+  fontSize: '12px',
+  padding: '2px 0px',
+  marginTop: '-5px'
+}

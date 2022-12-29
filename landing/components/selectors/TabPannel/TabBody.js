@@ -9,6 +9,10 @@ import { ColumnFour } from "../column/ColumnFour";
 import { ColumnFive } from "../column/ColumnFive";
 import { ColumnSix } from "../column/ColumnSix";
 
+import { Column } from "../column/index"
+
+// import { Column } from "../column"
+
 // =========== COLUMN =============
 const ColumnItems = [
   {

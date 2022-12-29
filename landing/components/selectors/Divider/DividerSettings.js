@@ -3,12 +3,7 @@ import { ToolbarSection, ToolbarItem } from "../../editor";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
 import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
-
-import {
-  AiOutlineAlignRight,
-  AiOutlineAlignLeft,
-  AiOutlineAlignCenter,
-} from "react-icons/ai";
+import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
 
 export const DividerSettings = () => {
   return (
@@ -16,46 +11,22 @@ export const DividerSettings = () => {
       <ToolbarSection
         title="Line"
         props={["width", "height"]}
-        summary={({ width, height }) => {
-          return `${width || 0} x ${height || 0}`;
-        }}
+      // summary={({ width, height }) => {
+      //   return `${width || 0} x ${height || 0}`;
+      // }}
       >
         <ToolbarItem full={true} propKey="width" type="slider" label="width" />
-        <ToolbarItem
-          full={true}
-          propKey="height"
-          type="slider"
-          label="height"
-        />
+        <ToolbarItem full={true} propKey="height" type="slider" label="height" />
       </ToolbarSection>
       <ToolbarSection title="Alignment">
-        <ToolbarItem
-          full={true}
-          propKey="justifyContent"
-          type="radio"
-          label="Justify Content"
-        >
+        <ToolbarItem full={true} propKey="justifyContent" type="radio">
           <AlignItems
             options={[
-              {
-                id: "just_start",
-                name: "justifyContent",
-                value: "flex-start",
-                Icon: <AiOutlineAlignLeft />,
-              },
-              {
-                id: "just_center",
-                name: "justifyContent",
-                value: "center",
-                Icon: <AiOutlineAlignCenter />,
-              },
-              {
-                id: "just_end",
-                name: "justifyContent",
-                value: "flex-end",
-                Icon: <AiOutlineAlignRight />,
-              },
+              { id: "just_start", name: "justifyContent", value: "flex-start", Icon: <AiOutlineAlignLeft /> },
+              { id: "just_center", name: "justifyContent", value: "center", Icon: <AiOutlineAlignCenter /> },
+              { id: "just_end", name: "justifyContent", value: "flex-end", Icon: <AiOutlineAlignRight /> },
             ]}
+            title={"Align"}
           />
         </ToolbarItem>
       </ToolbarSection>
@@ -69,21 +40,13 @@ export const DividerSettings = () => {
           return (
             <div className="flex flex-row-reverse">
               <div
-                style={{
-                  background:
-                    background && `rgba(${Object.values(background)})`,
-                }}
+                style={{ background: background && `rgba(${Object.values(background)})` }}
               ></div>
             </div>
           );
         }}
       >
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
       </ToolbarSection>
     </>
   );

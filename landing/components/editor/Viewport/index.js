@@ -12,11 +12,8 @@ export const Viewport = ({ children }) => {
   const htmlref = useRef(null);
   const [setHtml, setShowHtml] = useState("");
 
-  const {
-    enabled,
-    connectors,
-    actions: { setOptions },
-  } = useEditor((state) => ({
+
+  const { enabled, connectors, actions: { setOptions } } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
@@ -77,7 +74,10 @@ export const Viewport = ({ children }) => {
             ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
           >
             {/* <TabPannel /> */}
-            <div>
+            <div style={{
+              marginTop: "32px",
+              marginLeft: enabled ? "220px" : "",
+            }}>
               <table
                 style={{
                   fontFamily: "monospace",
@@ -86,8 +86,6 @@ export const Viewport = ({ children }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  marginLeft: "220px",
-                  marginTop: "32px",
                 }}
                 ref={htmlref}
               >

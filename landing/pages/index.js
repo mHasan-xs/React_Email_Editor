@@ -26,6 +26,8 @@ import { List } from "components/selectors/List";
 import { CanvasContainer } from "components/selectors/CanvasContainer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from 'react-redux'
+import store from "../rtk/app/store"
 
 const theme = createMuiTheme({
   typography: {
@@ -47,7 +49,7 @@ const App = () => {
   const isTrue = () => {
     setTimeout(() => {
       setShow(true);
-    }, 100);
+    }, 500);
   };
 
   //GET DRAFT DATA FROM SERVER
@@ -64,66 +66,70 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className=" h-screen">
-        <Editor
-          resolver={{
-            Container,
-            Text,
-            Button,
+      <Provider store={store}>
+        <div className=" h-screen">
+          <Editor
+            resolver={{
+              Container,
+              Text,
+              Button,
+              CustomeImage,
+              Divider,
+              CountDownTimer,
+              SocialIcon,
+              VideoBlock,
+              Column,
+              ImageComponent,
+              CanvasContainer,
+              // List,
+              ColumnOne,
+              ColumnTwo,
+              ColumnThree,
+              ColumnFour,
+              ColumnFive,
+              ColumnSix,
+              // TabBody,
+              // TabPannel,
+              TopTabPanel,
+            }}
+            enabled={false}
+            onRender={RenderNode}
+          >
+            {/* Toast for show error and success alert */}
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+            <Viewport>
+              {show && (
+                <Frame data={showDraft}>
 
-            CustomeImage,
-            Divider,
-            CountDownTimer,
-            SocialIcon,
-            VideoBlock,
-            Column,
-            ImageComponent,
-            CanvasContainer,
-            List,
-            ColumnOne,
-            ColumnTwo,
-            ColumnThree,
-            ColumnFour,
-            ColumnFive,
-            ColumnSix,
-            TabBody,
-            TopTabPanel,
-          }}
-          enabled={false}
-          onRender={RenderNode}
-        >
-          {/* Toast for show error and success alert */}
-          <ToastContainer
-            position="top-right"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-          />
-          <Viewport>
-            {show && (
-              <Frame data={showDraft}>
-                <Element
-                  canvas
-                  is={CanvasContainer}
-                  width="600px"
-                  height="auto"
-                  background={{ r: 255, g: 255, b: 255, a: 1 }}
-                  color={{ r: 0, g: 0, b: 0, a: 1 }}
-                  padding={["20", "20", "20", "20"]}
-                  custom={{ displayName: "App" }}
-                ></Element>
-              </Frame>
-            )}
-          </Viewport>
-        </Editor>
-      </div>
-    </ThemeProvider>
+                  <Element
+                    canvas
+                    is={CanvasContainer}
+                    width="600px"
+                    // height="auto"
+                    minHeight="300px"
+                    background={{ r: 255, g: 255, b: 255, a: 1 }}
+                    color={{ r: 0, g: 0, b: 0, a: 1 }}
+                    padding={["0", "20", "0", "20"]}
+                    custom={{ displayName: "App" }}
+                  ></Element>
+                </Frame>
+              )}
+            </Viewport>
+          </Editor>
+        </div>
+      </Provider>
+    </ThemeProvider >
   );
 };
 

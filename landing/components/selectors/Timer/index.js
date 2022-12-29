@@ -86,9 +86,13 @@ export const CountDownTimer = (props) => {
     textAlign,
     width,
     justifyContent,
+    TextAlign,
+    TextSize
   } = props;
 
   AccessPadding = Padding;
+
+  console.log(props.TextSize)
 
   // Set Time
   const time = new Date();
@@ -99,7 +103,7 @@ export const CountDownTimer = (props) => {
       ref={connect}
       style={{
         width: `${width == "100%" ? width : `${width}%`}`,
-        textAlign,
+        textAlign: TextAlign,
         fontWeight,
         background: `rgba(${Object.values(background)})`,
         color: `rgba(${Object.values(color)})`,
@@ -109,7 +113,7 @@ export const CountDownTimer = (props) => {
     >
       <Timer
         expiryTimestamp={time}
-        fontSize={fontSize}
+        fontSize={TextSize}
         justifyContent={justifyContent}
       />
     </table>

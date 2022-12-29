@@ -6,10 +6,7 @@ import { Text } from "../Text";
 export const Button = (props) => {
   const { action } = props;
 
-  const {
-    connectors: { connect },
-    actions: { setProp },
-  } = useNode((node) => ({
+  const { connectors: { connect }, actions: { setProp } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
@@ -17,64 +14,58 @@ export const Button = (props) => {
     enabled: state.options.enabled,
   }));
 
-  const {
-    text,
-    color,
-    buttonStyle,
-    textComponent,
-    Margin,
-    width,
-    Padding,
-    borderColor,
-    justifyContent,
-    textAlign,
-    fontSize,
-    fontWeight,
+  const { text, color, buttonStyle, textComponent, Margin, width, Padding, borderColor,
+    justifyContent, textAlign, fontSize, fontWeight, TextAlign, CustomeFontWeight, TextSize,
+    TextTransform,
     ...otherProps
   } = props;
 
+
   return (
     <table
+      ref={connect}
       style={{
         borderCollapse: "collapse",
         margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
-        width,
+        display: 'flex',
+        justifyContent: `${TextAlign}`
       }}
     >
       <tbody
         style={{
           border: " 2px solid transparent",
           cursor: "pointer",
-          background: ` ${
-            buttonStyle === "full"
-              ? `rgba(${Object.values(props.background)})`
-              : "transparent"
-          }`,
-          boxShadow: `${
-            buttonStyle == "outline" ? `0px 0px 2px 0px gray` : "transparent"
-          }`,
+          // background: ` ${buttonStyle === "full"
+          //   ? `rgba(${Object.values(props.background)})`
+          //   : "transparent"
+          //   }`,
+          boxShadow: `${buttonStyle == "outline" ? `0px 0px 2px 0px gray` : "transparent"
+            }`,
         }}
       >
         <tr>
           <td
             style={{
-              padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
+              // padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
+              width: '100px',
+              textAlign: `${TextAlign}`
             }}
           >
             <a
               href={action ? action : "#"}
-              style={{
-                textDecoration: "none",
-                fontSize: `${fontSize}px`,
-              }}
+              style={{ textDecoration: "none", fontSize: `${fontSize}px` }}
             >
               <Text
                 {...textComponent}
                 text={text}
                 color={color}
-                fontSize={fontSize}
-                fontWeight={fontWeight}
-                textAlign={textAlign}
+                TextTransform={TextTransform}
+                TextSize={TextSize}
+                CustomeFontWeight={CustomeFontWeight}
+                TextAlign="center"
+                CustomeWidth="inline-block"
+                PaddingStyle={`${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`}
+                Background={buttonStyle === "full" ? `rgba(${Object.values(props.background)})` : "transparent"}
               />
             </a>
           </td>
@@ -87,7 +78,7 @@ export const Button = (props) => {
 Button.craft = {
   displayName: "Button",
   props: {
-    width: "100%",
+    width: "100px",
     justifyContent: "center",
     background: { r: 0, g: 0, b: 0, a: 1 },
     color: { r: 255, g: 192, b: 203, a: 1 },

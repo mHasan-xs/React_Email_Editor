@@ -8,7 +8,14 @@ import {
 } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
 
-const BorderDrop = () => {
+const BorderOption = [
+  { id: "1", name: "None", value: "none" },
+  { id: "2", name: "Solid", value: "solid" },
+  { id: "3", name: "Dotted", value: "dotted" },
+  { id: "4", name: "Dashed", value: "dashed" },
+]
+
+const BorderDrop = ({ Options, title, propsName }) => {
   const [borderType, setBorderType] = useState("");
 
   const {
@@ -21,23 +28,36 @@ const BorderDrop = () => {
     setProp((props) => (props.BorderType = newBorder));
   };
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Type</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          value={borderType}
-          label="Type"
-          onChange={handleChange}
-        >
-          <MenuItem value="none">None</MenuItem>
-          <MenuItem value="solid">Solid</MenuItem>
-          <MenuItem value="dotted">Dotted</MenuItem>
-          <MenuItem value="dashed">Dashed</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <div style={{ display: 'flex', justifyContent: 'space-between', width: '199px' }}>
+      <p style={TitleStyle}>Type:</p>
+      <select value={borderType} onChange={handleChange}
+        style={SelectStyle}
+        className="focus:ring-blue-500 focus:border-blue-500">
+        {BorderOption.map((item, index) => (
+          <option key={index} value={item.value}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
 export default BorderDrop;
+
+
+const TitleStyle = {
+  display: 'block',
+  fontSize: '14px',
+  color: 'gray',
+  fontWeight: '400'
+}
+
+const SelectStyle = {
+  width: '120px',
+  paddingBottom: '0px',
+  paddingTop: '0px',
+  fontSize: '12px',
+  border: '1px solid gray',
+  color: 'gray'
+}

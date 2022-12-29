@@ -1,22 +1,13 @@
-import { useNode } from "@craftjs/core";
 import React from "react";
 import { ToolbarSection, ToolbarItem } from "../../editor";
-import VideoActions from "./videoActions";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
+import { FileUpload } from "../../editor/Toolbar/FileUpload"
 
 export const VideoSettings = () => {
-  const {
-    actions: { setProp },
-  } = useNode();
-
-  const handleChange = (e) => {
-    const videoAction = e.target.value;
-    setProp((props) => (props.actions = videoAction));
-  };
   return (
     <>
       <ToolbarSection title="Background">
-        <VideoActions />
+        <FileUpload title="Background" name="picture" />
       </ToolbarSection>
       <ToolbarSection title="Spacing">
         <ToolbarSection title="Margin" props={["margin"]}>
@@ -24,14 +15,15 @@ export const VideoSettings = () => {
         </ToolbarSection>
       </ToolbarSection>
       <ToolbarSection title="Actions">
-        <div>
+        {/* <div>
           <input
             className="border border-1"
             type="text"
             placeholder="Write video actions"
             onChange={handleChange}
           />
-        </div>
+        </div> */}
+        <ToolbarItem propKey="action" type="setLink" label="Set Action" />
       </ToolbarSection>
     </>
   );

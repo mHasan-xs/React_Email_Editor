@@ -6,76 +6,67 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Toolbox } from "../../editor/Viewport/Toolbox";
 import { TbGridDots } from "react-icons/tb";
-import { useEditor } from "@craftjs/core";
+import { Canvas, useEditor } from "@craftjs/core";
 import { Tooltip } from "@material-ui/core";
 import { GrUndo, GrRedo } from "react-icons/gr";
 import { Search } from "../../editor/Toolbar/Search/Search";
 import { TabBody } from "./TabBody";
 import { Sidebar } from "../../editor/Viewport/Sidebar";
+import { BsEye } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { previewButton } from "../../../rtk/features/Preview/PreviewSlice"
 
 // =========== TAB ELEMENTS ========
 const tabElement = [
-  {
-    name: "Element",
-    value: "1",
-  },
-  {
-    name: "Template",
-    value: "2",
-  },
-  {
-    name: "Body",
-    value: "3",
-  },
+  { name: "Element", value: "1" },
+  { name: "Template", value: "2" },
+  { name: "Body", value: "3" },
 ];
 
 export const TopTabPanel = (props) => {
   const [value, setValue] = useState("1");
   const [showStyleBar, setShowStyleBar] = useState(false);
 
-  const {
-    enabled,
-    actions,
-    connectors: { create, connect },
-  } = useEditor((state, query) => ({
+  const { enabled, connectors, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
   }));
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
-  //   ========= HANDLE STYLE BAR ========
+  // Clicking Preview Icon, dispatch preview actions, then show modal in UI
+  const dispatch = useDispatch()
+  const handlePreview = () => dispatch(previewButton())
+
+  // Changing Top tabbar option, after clicking
+  const handleChange = (event, newValue) => { setValue(newValue) };
+  // Clicking StyleBar option, then show style bar.
   const handleStyleBar = () => {
     setShowStyleBar(!showStyleBar);
     setValue("1");
   };
 
-  // =============== TESTING ============
 
-  const { dragged } = useEditor((state, query) => {
-    const currentlyDraggedNode = query.getEvent("dragged").contains();
-
-    console.log(query.getEvent("dragged").contains(), "dragged");
-    return {
-      dragged: currentlyDraggedNode,
-    };
+  const SelectedStyle = useEditor((state, query) => {
+    /**
+     * When user select any element after dragged, then it's style menu open.
+     * And if user remove any dragged element, then widget menu open 
+    */
+    const hasSelectedNode = state.events.selected.size > 0
+    if (hasSelectedNode == true) {
+      setShowStyleBar(true)
+    }
   });
 
+
   return (
-    <Box
-      style={{
-        position: "relative",
-        display: enabled ? "block" : "none",
-        width: "300px",
-      }}
-    >
+    <Box style={{ position: "relative", display: enabled ? "block" : "none", width: "300px", }}>
       <div style={sidebarHeader}>
         <div>
           <p style={{ fontSize: "14px" }}>Widgets</p>
         </div>
         <div>
-          <span style={{ cursor: "pointer" }} onClick={handleStyleBar}>
+          <span style={{ cursor: "pointer" }} onClick={handleStyleBar}
+            ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
+          >
             <TbGridDots />
           </span>
         </div>
@@ -95,14 +86,16 @@ export const TopTabPanel = (props) => {
               ))}
             </TabList>
           </Box>
-          <TabPanel value="1" style={tabPanelStyle}>
-            <Toolbox />
+          <TabPanel value="1" style={tabPanelStyle} >
+            <span>
+              <Toolbox />
+            </span>
           </TabPanel>
           <TabPanel value="2" style={tabPanelStyle}>
             <Search />
           </TabPanel>
           <TabPanel value="3" style={tabPanelStyle}>
-            <TabBody />
+            {/* <TabBody /> */}
           </TabPanel>
         </TabContext>
       )}
@@ -119,6 +112,11 @@ export const TopTabPanel = (props) => {
                 <GrRedo />
               </button>
             </Tooltip>
+            <Tooltip title="preview" placement="bottom">
+              <button onClick={handlePreview} ref={(ref) => connectors.select(connectors.hover(ref, null), null)}>
+                <BsEye style={previewButtonStyle} />
+              </button>
+            </Tooltip>
           </div>
         )}
       </div>
@@ -128,7 +126,7 @@ export const TopTabPanel = (props) => {
 
 const RedoUndo = {
   color: "white",
-  cursor: "not-allowed",
+  // cursor: "not-allowed",
   fontSize: "20px",
   margin: "0px 4px",
 };
@@ -156,3 +154,10 @@ const tabPanelStyle = {
   height: "100%",
   overflowY: "scroll",
 };
+
+const previewButtonStyle = {
+  color: "white",
+  fontSize: "20px",
+  marginLeft: "7px",
+  marginTop: "2px"
+}

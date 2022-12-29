@@ -1,4 +1,4 @@
-import { useNode, useEditor } from "@craftjs/core";
+import { useNode, useEditor, Element } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
@@ -8,6 +8,7 @@ import ArrowUp from "../../public/icons/arrow-up.svg";
 import Delete from "../../public/icons/delete.svg";
 import Move from "../../public/icons/move.svg";
 import { CopySvg } from "../../public/icons/myIcon/CopySvg";
+import { Column } from "../selectors/column"
 
 const IndicatorDiv = styled.div`
   height: 30px;
@@ -40,15 +41,7 @@ export const RenderNode = ({ render }) => {
     isActive: query.getEvent("selected").contains(id),
   }));
 
-  const {
-    isHover,
-    dom,
-    name,
-    moveable,
-    deletable,
-    connectors: { drag },
-    parent,
-  } = useNode((node) => ({
+  const { isHover, props, dom, name, moveable, deletable, connectors: { drag }, parent } = useNode((node) => ({
     isHover: node.events.hovered,
     dom: node.dom,
     name: node.data.custom.displayName || node.data.displayName,
@@ -59,6 +52,7 @@ export const RenderNode = ({ render }) => {
   }));
 
   const currentRef = useRef();
+
 
   useEffect(() => {
     if (dom) {
@@ -86,6 +80,7 @@ export const RenderNode = ({ render }) => {
     currentDOM.style.left = left;
   }, [dom, getPos]);
 
+
   useEffect(() => {
     document
       .querySelector(".craftjs-renderer")
@@ -100,62 +95,89 @@ export const RenderNode = ({ render }) => {
 
   const handleCopy = (id) => {
     console.log(id, "something");
+    // return (
+    //   <div
+    //     // onClick={() => handleColumn(item)}
+    //     // key={item.id}
+    //     ref={(ref) =>
+    //       create(
+    //         ref,
+    //         <Element
+    //           canvas
+    //           is={Column}
+    //           background={{ r: 255, g: 255, b: 255, a: 1 }}
+    //           color={{ r: 0, g: 0, b: 0, a: 0 }}
+    //           height="200px"
+    //           width="300px"
+    //         ></Element>
+    //       )
+    //     }
+    //   >
+    //     <p>hello</p>
+    //   </div>
+    // )
   };
+
 
   return (
     <>
       {isHover || isActive
         ? ReactDOM.createPortal(
-            <IndicatorDiv
-              ref={currentRef}
-              className="px-2 py-2 text-white bg-primary fixed flex items-center"
-              style={{
-                left: getPos(dom).left,
-                top: getPos(dom).top,
-                zIndex: 9999,
-              }}
-            >
-              <h2 className="flex-1 mr-4">{name}</h2>
-              {moveable ? (
-                <Btn className="mr-2 cursor-move" ref={drag}>
-                  <Move />
-                </Btn>
-              ) : null}
-              {id !== ROOT_NODE && (
+          <IndicatorDiv
+            ref={currentRef}
+            className="px-2 py-2 text-white bg-primary fixed flex items-center"
+            style={{
+              left: getPos(dom).left,
+              // left: '740px',
+              top: getPos(dom).top,
+              zIndex: 9999,
+              borderRadius: '4px 4px 0px 0px'
+            }}
+          >
+            <h2 className="flex-1 mr-3">{name}</h2>
+            {moveable ? (
+              <Btn className="mr-2 cursor-move" ref={drag}>
+                <Move />
+              </Btn>
+            ) : null}
+            {id !== ROOT_NODE && (
+              <Btn
+                className="mr-2 cursor-pointer"
+                onClick={() => {
+                  actions.selectNode(parent);
+                }}
+              >
+                <ArrowUp />
+              </Btn>
+            )}
+            {deletable ? (
+              <>
                 <Btn
-                  className="mr-2 cursor-pointer"
-                  onClick={() => {
-                    actions.selectNode(parent);
+                  className="cursor-pointer mr-2"
+                  onMouseDown={(e) => {
+                    e.stopPropagation();
+                    actions.delete(id);
                   }}
                 >
-                  <ArrowUp />
+                  <Delete />
                 </Btn>
-              )}
-              {deletable ? (
-                <>
-                  <Btn
-                    className="cursor-pointer"
-                    onMouseDown={(e) => {
-                      e.stopPropagation();
-                      actions.delete(id);
-                    }}
-                  >
-                    <Delete />
-                  </Btn>
-                </>
-              ) : null}
+              </>
+            ) : null}
+            {id !== ROOT_NODE &&
               <Btn
                 className="cursor-pointer"
-                onMouseDown={(e) => {
+                onClick={(e) => {
                   e.stopPropagation();
                   handleCopy(id);
                 }}
               >
                 <CopySvg />
               </Btn>
-            </IndicatorDiv>,
-            document.querySelector(".page-container")
-          )
+            }
+
+          </IndicatorDiv>,
+          document.querySelector(".page-container")
+        )
         : null}
       {render}
     </>

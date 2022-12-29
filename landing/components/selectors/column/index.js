@@ -5,22 +5,10 @@ import { Resizable } from "re-resizable";
 import ColumnNoContent from "./ColumnNoContent";
 
 export const Column = (props) => {
-  const {
-    children,
-    columnContainer: ColumnContainer,
-    background,
-    color,
-    Padding,
-    Margin,
-    picture,
-    BorderType,
-    radius,
-  } = props;
-
+  const { children, columnContainer: ColumnContainer, background, color, Padding, Margin, picture, BorderType, radius } = props;
   const BorderStyle = { BorderType, radius, color };
-  const {
-    connectors: { connect, drag },
-  } = useNode((node) => ({
+
+  const { connectors: { connect, drag } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
@@ -47,12 +35,10 @@ export const Column = (props) => {
             <td
               style={{
                 width: "100%",
-                padding: "10px",
                 textAlign: "center",
                 padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
-                background: `${
-                  background ? `rgba(${Object.values(background)})` : ""
-                }`,
+                background: `${background ? `rgba(${Object.values(background)})` : ""
+                  }`,
                 backgroundImage: `url(${picture || ""})`,
                 backgroundSize: "cover",
                 backgroundPosition: "top",

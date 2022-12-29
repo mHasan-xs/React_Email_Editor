@@ -26,7 +26,7 @@ export const Sidebar = () => {
 
   return (
     <SidebarDiv enabled={enabled} className="sidebar transition bg-white w-2">
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full overflow-scroll">
         <SidebarItem
           icon={CustomizeIcon}
           title="Customize"

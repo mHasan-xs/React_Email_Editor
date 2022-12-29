@@ -19,9 +19,7 @@ import { ColumnSix } from "../column/ColumnSix";
 // =========== COLUMN =============
 const intialColumn = [
   {
-    id: 1,
-    column: ColumnOne,
-    img: " /image/ColumnOne.jpg",
+    id: 1, column: ColumnOne, img: " /image/ColumnOne.jpg",
   },
   {
     id: 2,

@@ -9,9 +9,7 @@ let previousImage =
 export const CustomeImage = (props, e) => {
   const { picture } = props;
 
-  const {
-    connectors: { connect },
-  } = useNode((node) => ({
+  const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
@@ -20,19 +18,7 @@ export const CustomeImage = (props, e) => {
     ...props,
   };
 
-  const {
-    flexDirection,
-    alignItems,
-    justifyContent,
-    color,
-    Padding,
-    Margin,
-    shadow,
-    children,
-    width,
-    minHeight,
-    backgroundSize,
-  } = props;
+  const { flexDirection, alignItems, justifyContent, color, Padding, Margin, shadow, children, width, minHeight, backgroundSize } = props;
 
   return (
     <table

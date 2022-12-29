@@ -3,17 +3,11 @@ import React from "react";
 const ColumnNoContent = () => {
   return (
     <>
-      <p
-        style={{
-          padding: "10px 20px",
-          fontSize: "15px",
-          color: "skyblue",
-          fontWeight: "bold",
-        }}
-      >
-        No content here. Drug content right now
+      <p style={{ padding: "10px 20px", fontSize: "15px", color: "skyblue", fontWeight: "bold" }}>
+        No content here. <br />
+        Drug content right now
       </p>
-      <button
+      {/* <button
         style={{
           background: "skyblue",
           fontSize: "15px",
@@ -24,7 +18,7 @@ const ColumnNoContent = () => {
         }}
       >
         Add Content
-      </button>
+      </button> */}
     </>
   );
 };

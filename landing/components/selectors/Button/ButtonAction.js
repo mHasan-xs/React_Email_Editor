@@ -19,14 +19,14 @@ export const ButtonAction = ({ title, value, onChange }) => {
   return (
     <>
       <div>
-        <label className="text-sm">{title}</label>
         <div style={{ width: "250px" }}>
           <input
             style={{
-              marginTop: "10px",
-              padding: "4px 12px",
+              padding: "4px 10px",
               outline: "none",
-              border: " 1px solid black",
+              border: " 1px solid gray",
+              fontSize: '12px',
+              width: "94%"
             }}
             type="text"
             placeholder="Enter Link"

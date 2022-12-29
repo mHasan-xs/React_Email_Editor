@@ -8,6 +8,7 @@ import Checkmark from "../../../public/icons/check.svg";
 import Customize from "../../../public/icons/customize.svg";
 import RedoSvg from "../../../public/icons/toolbox/redo.svg";
 import UndoSvg from "../../../public/icons/toolbox/undo.svg";
+import { Preview } from "./Preview/Preview"
 
 const HeaderDiv = styled.div`
   width: 100%;
@@ -55,9 +56,10 @@ export const Header = ({ htmlExport }) => {
   const { query } = useEditor();
   const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
-    canUndo: query.history.canUndo(),
-    canRedo: query.history.canRedo(),
+    // canUndo: query.history.canUndo(),
+    // canRedo: query.history.canRedo(),
   }));
+
 
   // SAVE DATA JSON SERVER
   const handleExportHtml = async () => {
@@ -105,6 +107,8 @@ export const Header = ({ htmlExport }) => {
             {enabled ? <Checkmark /> : <Customize />}
             {enabled ? "Save" : "Edit"}
           </Btn>
+          {enabled && <Preview htmlData={htmlExport} />}
+
         </div>
       </div>
     </HeaderDiv>
