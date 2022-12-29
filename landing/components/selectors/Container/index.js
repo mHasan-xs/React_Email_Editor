@@ -23,13 +23,7 @@ export const Container = (props) => {
 
   return (
     <>
-      <table
-        style={{
-          borderCollapse: "collapse",
-          borderSpacing: "0px",
-          width: "100%",
-        }}
-      >
+      <table style={{ borderCollapse: "collapse", borderSpacing: "0px", width: "100%" }}>
         <tbody>
           <tr>
             <td>

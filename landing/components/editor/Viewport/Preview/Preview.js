@@ -20,15 +20,8 @@ export const Preview = ({ htmlData }) => {
   const Open = useSelector((state) => state.preview.value)
   const previewDrop = useSelector((state) => state.Responsive.value)
 
-
-  const handleExitButton = () => {
-    dispatch(ExitPreviewButton())
-  }
-
-  const handleResponsiveOption = (item) => {
-    dispatch(responsive(item.size))
-  }
-
+  const handleExitButton = () => { dispatch(ExitPreviewButton()) }
+  const handleResponsiveOption = (item) => { dispatch(responsive(item.size)) }
   const htmlFromProps = htmlData.current;
   const outerData = htmlFromProps.outerHTML;
 
@@ -36,7 +29,6 @@ export const Preview = ({ htmlData }) => {
     <div>
       <Modal open={Open}>
         <Box sx={style}>
-
           <div style={{ display: 'flex' }}>
             <div style={{ display: 'flex', width: '65%', justifyContent: 'end' }}>
               {ResponsiveOptions.map((item) => (
@@ -52,7 +44,6 @@ export const Preview = ({ htmlData }) => {
               <button style={exitButton} onClick={handleExitButton}>Exit Preview</button>
             </div>
           </div>
-
 
           <Divider style={{ margin: '10px 0px' }} />
 

@@ -52,7 +52,7 @@ const intialColumn = [
 export const ColumnSettings = (props) => {
   const { actions: { setProp } } = useNode();
 
-  const { enabled, connectors: { create } } = useEditor((state) => ({
+  const { connectors: { create } } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
@@ -105,12 +105,7 @@ export const ColumnSettings = (props) => {
         </div>
       </ToolbarSection>
       <ToolbarSection title="Column">
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
         <ToolbarSection title="Margin" props={["margin"]}>
           <SpacingItem title="Margin" />
         </ToolbarSection>
@@ -119,12 +114,7 @@ export const ColumnSettings = (props) => {
         </ToolbarSection>
         <ToolbarSection title="Border">
           <ToolbarItem full={true} propKey="color" type="color" label="Color" />
-          <ToolbarItem
-            full={true}
-            propKey="radius"
-            type="slider"
-            label="Width"
-          />
+          <ToolbarItem full={true} propKey="radius" type="slider" label="Width" />
           <ToolbarItem propKey="fontWeight" type="radio" full={true}>
             <DropdownMenu
               Options={[
@@ -168,9 +158,6 @@ export const ColumnSettings = (props) => {
             ]}
             title={"Align"}
           />
-          {/* <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" /> */}
         </ToolbarItem>
         <ToolbarItem propKey="justifyContent" type="radio" full={true}>
           <AlignItems
@@ -181,9 +168,6 @@ export const ColumnSettings = (props) => {
             ]}
             title={"Justify"}
           />
-          {/* <ToolbarRadio value="flex-start" label="Flex start" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="flex-end" label="Flex end" /> */}
         </ToolbarItem>
       </ToolbarSection>
     </>

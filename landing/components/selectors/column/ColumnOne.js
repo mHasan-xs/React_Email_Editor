@@ -5,10 +5,7 @@ import ColumnNoContent from "./ColumnNoContent";
 export const ColumnOne = (props) => {
   const { children, BackgroundPicture, Background, PaddingStyle = [], BorderStyle = "", Margin } = props;
   const { BorderType, color, radius } = BorderStyle;
-
-  const { connectors: { connect } } = useNode((node) => ({
-    selected: node.events.selected,
-  }));
+  const { connectors: { connect } } = useNode((node) => ({ selected: node.events.selected }));
 
   return (
     <table

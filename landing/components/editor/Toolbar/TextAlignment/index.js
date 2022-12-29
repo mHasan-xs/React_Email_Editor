@@ -34,9 +34,4 @@ export const TextAlignment = ({ options, title }) => {
 }
 
 
-const TitleStyle = {
-    display: 'block',
-    fontSize: '14px',
-    color: 'gray',
-    fontWeight: '400'
-}
+const TitleStyle = { display: 'block', fontSize: '14px', color: 'gray', fontWeight: '400' }

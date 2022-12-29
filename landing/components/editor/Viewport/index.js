@@ -1,17 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useRef } from "react";
 import { useEditor } from "@craftjs/core";
 import cx from "classnames";
 import { Header } from "./Header";
-import { Sidebar } from "./Sidebar";
-import TabPannel from "../../selectors/TabPannel/TabPanel";
 import { TopTabPanel } from "../../selectors/TabPannel/TopTabPanel";
-import { Preview } from "./Preview/Preview";
 
 export const Viewport = ({ children }) => {
   const htmlref = useRef(null);
-  const [setHtml, setShowHtml] = useState("");
-
 
   const { enabled, connectors, actions: { setOptions } } = useEditor((state) => ({
     enabled: state.options.enabled,
@@ -39,17 +33,6 @@ export const Viewport = ({ children }) => {
     });
   }, [setOptions]);
 
-  //GET DATA FROM SERVER
-  useEffect(() => {
-    const fatchData = async () => {
-      await axios.get(`http://localhost:9000/data`).then((res) => {
-        const saveData = res.data;
-        setShowHtml(saveData.html);
-      });
-    };
-    fatchData();
-  }, []);
-
   return (
     <div className="viewport">
       <div
@@ -73,20 +56,9 @@ export const Viewport = ({ children }) => {
             ])}
             ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
           >
-            {/* <TabPannel /> */}
-            <div style={{
-              marginTop: "32px",
-              marginLeft: enabled ? "220px" : "",
-            }}>
+            <div style={{ marginTop: "32px", marginLeft: enabled ? "220px" : "" }}>
               <table
-                style={{
-                  fontFamily: "monospace",
-                  position: "static",
-                  overflow: "hidden",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                style={{ fontFamily: "monospace", position: "static", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center" }}
                 ref={htmlref}
               >
                 {children}
@@ -94,7 +66,6 @@ export const Viewport = ({ children }) => {
             </div>
           </div>
         </div>
-        {/* <Sidebar /> */}
       </div>
     </div>
   );

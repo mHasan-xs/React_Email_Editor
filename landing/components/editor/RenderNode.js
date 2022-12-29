@@ -1,14 +1,12 @@
-import { useNode, useEditor, Element } from "@craftjs/core";
+import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-
 import ArrowUp from "../../public/icons/arrow-up.svg";
 import Delete from "../../public/icons/delete.svg";
 import Move from "../../public/icons/move.svg";
 import { CopySvg } from "../../public/icons/myIcon/CopySvg";
-import { Column } from "../selectors/column"
 
 const IndicatorDiv = styled.div`
   height: 30px;
@@ -41,7 +39,7 @@ export const RenderNode = ({ render }) => {
     isActive: query.getEvent("selected").contains(id),
   }));
 
-  const { isHover, props, dom, name, moveable, deletable, connectors: { drag }, parent } = useNode((node) => ({
+  const { isHover, dom, name, moveable, deletable, connectors: { drag }, parent } = useNode((node) => ({
     isHover: node.events.hovered,
     dom: node.dom,
     name: node.data.custom.displayName || node.data.displayName,
@@ -95,27 +93,6 @@ export const RenderNode = ({ render }) => {
 
   const handleCopy = (id) => {
     console.log(id, "something");
-    // return (
-    //   <div
-    //     // onClick={() => handleColumn(item)}
-    //     // key={item.id}
-    //     ref={(ref) =>
-    //       create(
-    //         ref,
-    //         <Element
-    //           canvas
-    //           is={Column}
-    //           background={{ r: 255, g: 255, b: 255, a: 1 }}
-    //           color={{ r: 0, g: 0, b: 0, a: 0 }}
-    //           height="200px"
-    //           width="300px"
-    //         ></Element>
-    //       )
-    //     }
-    //   >
-    //     <p>hello</p>
-    //   </div>
-    // )
   };
 
 

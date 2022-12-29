@@ -2,13 +2,7 @@ import React from "react";
 import style from "./SocailURLCard.module.css";
 import { FaTrashAlt } from "react-icons/fa";
 
-const SocailActionCard = ({
-  cardItem,
-  handleDelete,
-  handleChange,
-  error,
-  newIndex,
-}) => {
+const SocailActionCard = ({ cardItem, handleDelete, handleChange, error, newIndex }) => {
   return (
     <>
       {cardItem?.map((item, index) => (
@@ -19,10 +13,7 @@ const SocailActionCard = ({
               <p style={{ fontSize: "14px", marginTop: "3px" }}>{item.text}</p>
             </div>
             <div>
-              <p
-                className={style.deleteButton}
-                onClick={() => handleDelete(item)}
-              >
+              <p className={style.deleteButton} onClick={() => handleDelete(item)}>
                 <FaTrashAlt />
               </p>
             </div>

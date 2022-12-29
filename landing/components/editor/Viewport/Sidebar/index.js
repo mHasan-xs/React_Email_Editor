@@ -2,9 +2,7 @@ import { useEditor } from "@craftjs/core";
 import { Layers } from "@craftjs/layers";
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import { SidebarItem } from "./SidebarItem";
-
 import CustomizeIcon from "../../../../public/icons/customize.svg";
 import LayerIcon from "../../../../public/icons/layers.svg";
 import { Toolbar } from "../../Toolbar";

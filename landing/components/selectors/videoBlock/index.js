@@ -10,7 +10,6 @@ export const VideoBlock = (props) => {
     selected: node.events.selected,
   }));
 
-  // let previousImage = "/image/Image.jpg";
   let previousImage =
     "https://img.freepik.com/premium-photo/image-planet-outer-space-mixed-media-elements-image-furnished-by-nasa_641298-3434.jpg";
 

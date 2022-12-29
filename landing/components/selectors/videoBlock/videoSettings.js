@@ -15,14 +15,6 @@ export const VideoSettings = () => {
         </ToolbarSection>
       </ToolbarSection>
       <ToolbarSection title="Actions">
-        {/* <div>
-          <input
-            className="border border-1"
-            type="text"
-            placeholder="Write video actions"
-            onChange={handleChange}
-          />
-        </div> */}
         <ToolbarItem propKey="action" type="setLink" label="Set Action" />
       </ToolbarSection>
     </>

@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useEditor } from "@craftjs/core";
-import { Tooltip } from "@material-ui/core";
 import cx from "classnames";
 import styled from "styled-components";
 import Checkmark from "../../../public/icons/check.svg";
 import Customize from "../../../public/icons/customize.svg";
-import RedoSvg from "../../../public/icons/toolbox/redo.svg";
-import UndoSvg from "../../../public/icons/toolbox/undo.svg";
 import { Preview } from "./Preview/Preview"
 
 const HeaderDiv = styled.div`
@@ -36,28 +33,26 @@ const Btn = styled.a`
   }
 `;
 
-const Item = styled.a`
-  margin-right: 10px;
-  cursor: pointer;
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #707070;
-  }
-  ${(props) =>
-    props.disabled &&
-    `
-    opacity:0.5;
-    cursor: not-allowed;
-  `}
-`;
+// const Item = styled.a`
+//   margin-right: 10px;
+//   cursor: pointer;
+//   svg {
+//     width: 20px;
+//     height: 20px;
+//     fill: #707070;
+//   }
+//   ${(props) =>
+//     props.disabled &&
+//     `
+//     opacity:0.5;
+//     cursor: not-allowed;
+//   `}
+// `;
 
 export const Header = ({ htmlExport }) => {
   const { query } = useEditor();
-  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
+  const { enabled, actions } = useEditor((state, query) => ({
     enabled: state.options.enabled,
-    // canUndo: query.history.canUndo(),
-    // canRedo: query.history.canRedo(),
   }));
 
 

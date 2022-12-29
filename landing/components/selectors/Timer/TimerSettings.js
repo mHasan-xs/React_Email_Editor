@@ -1,8 +1,6 @@
 import React from "react";
 import DateAndTimePicker from "./DateAndTimePicker";
 import { ToolbarSection, ToolbarItem } from "../../editor";
-import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
-import { capitalize } from "../../../utils/text";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
 import { DropdownMenu } from "../../editor/Toolbar/Dropdown/DropdownMenu"
 import { TextAlignment } from "../../editor/Toolbar/TextAlignment"
@@ -34,19 +32,8 @@ export const TimerSettings = ({ handleTime }) => {
       <ToolbarSection
         title="Typography"
         props={["fontSize", "fontWeight", "textAlign"]}
-      // summary={({ fontSize, fontWeight, textAlign }) => {
-      //   return `
-      //    ${fontSize || ""},
-      //    ${fontWeight},
-      //    ${capitalize(textAlign || "")}`;
-      // }}
+
       >
-        {/* <ToolbarItem
-          full={true}
-          propKey="fontSize"
-          type="slider"
-          label="Font Size"
-        /> */}
         <ToolbarItem propKey="textAlign" type="radio" full={true}>
           <TextAlignment
             options={[
@@ -56,9 +43,6 @@ export const TimerSettings = ({ handleTime }) => {
             ]}
             title={"Align"}
           />
-          {/* <ToolbarRadio value="left" label="Left" />
-          <ToolbarRadio value="center" label="Center" />
-          <ToolbarRadio value="right" label="Right" /> */}
         </ToolbarItem>
         <ToolbarItem propKey="fontWeight" type="radio" full={true}>
           <DropdownMenu

@@ -12,8 +12,6 @@ import DividerSvg from "../../../public/icons/myIcon/DividerSvg";
 import ColumnSvg from "../../../public/icons/myIcon/ColumnSvg";
 import TimerSvg from "../../../public/icons/myIcon/TimerSvg";
 import SqureSvg from "../../../public/icons/myIcon/SqureSvg";
-import ListSvg from "../../../public/icons/myIcon/ListSvg";
-
 import { Button } from "../../selectors/Button";
 import { Container } from "../../selectors/Container";
 import { Text } from "../../selectors/Text";
@@ -24,7 +22,6 @@ import { Divider } from "../../selectors/Divider";
 import { CountDownTimer } from "../../selectors/Timer";
 import { Column } from "../../selectors/column";
 import { ImageComponent } from "../../selectors/ImageComponent";
-import { List } from "../../selectors/List";
 
 const ToolboxDiv = styled.div`
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -33,17 +30,9 @@ const ToolboxDiv = styled.div`
 `;
 
 const Item = styled.a`
-  svg {
-    width: 110px;
-    height: 30px;
-    fill: #707070;
-  }
-  ${(props) =>
-    props.move &&
-    `
-    cursor: move;
-  `}
-`;
+  svg {width: 110px;height: 30px;fill: #707070;}
+  ${(props) => props.move && `cursor: move;`}
+  `;
 
 export const Toolbox = () => {
   const { enabled, connectors: { create } } = useEditor((state) => ({
@@ -56,10 +45,7 @@ export const Toolbox = () => {
       className="toolbox transition w-12 h-full  bg-white"
     >
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat( 2, 1fr)`,
-        }}
+        style={{ display: "grid", gridTemplateColumns: `repeat( 2, 1fr)` }}
         className="pt-3"
       >
         <div
@@ -79,11 +65,7 @@ export const Toolbox = () => {
         >
           <Tooltip title="Container" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -108,11 +90,7 @@ export const Toolbox = () => {
         >
           <Tooltip title="Column" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -127,11 +105,7 @@ export const Toolbox = () => {
         >
           <Tooltip title="Text" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -142,11 +116,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <Button />)}>
           <Tooltip title="Button" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -157,11 +127,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <VideoBlock />)}>
           <Tooltip title="Video" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -172,11 +138,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <SocialIcon />)}>
           <Tooltip title=" test social" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -202,11 +164,7 @@ export const Toolbox = () => {
         >
           <Tooltip title="Image div" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -217,11 +175,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <ImageComponent />)}>
           <Tooltip title="Image component" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -232,11 +186,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <Divider />)}>
           <Tooltip title="Divider" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >
@@ -247,11 +197,7 @@ export const Toolbox = () => {
         <div ref={(ref) => create(ref, <CountDownTimer />)}>
           <Tooltip title="Divider" placement="right">
             <Item
-              style={{
-                border: "1px solid #E0E0E0",
-                borderRadius: "4px",
-                padding: "10px 0px",
-              }}
+              style={{ border: "1px solid #E0E0E0", borderRadius: "4px", padding: "10px 0px" }}
               className="m-2 pb-2 cursor-pointer block"
               move
             >

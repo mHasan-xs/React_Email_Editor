@@ -3,11 +3,7 @@ import { ToolbarSection, ToolbarItem } from "../../editor";
 import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
 
-import {
-  AiOutlineAlignRight,
-  AiOutlineAlignLeft,
-  AiOutlineAlignCenter,
-} from "react-icons/ai";
+import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
 
 export const ContainerSettings = () => {
   return (
@@ -15,9 +11,9 @@ export const ContainerSettings = () => {
       <ToolbarSection
         title="Dimensions"
         props={["width", "height"]}
-        summary={({ width, height }) => {
-          return `${width || 0} x ${height || 0}`;
-        }}
+      // summary={({ width, height }) => {
+      //   return `${width || 0} x ${height || 0}`;
+      // }}
       >
         <ToolbarItem propKey="width" type="text" label="Width" />
         <ToolbarItem propKey="height" type="text" label="Height" />
@@ -48,12 +44,7 @@ export const ContainerSettings = () => {
           );
         }}
       >
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
         <ToolbarItem full={true} propKey="color" type="color" label="Text" />
       </ToolbarSection>
       <ToolbarSection title="Margin" props={["margin"]}>
@@ -63,76 +54,28 @@ export const ContainerSettings = () => {
         <SpacingItem title="Padding" />
       </ToolbarSection>
       <ToolbarSection title="Decoration" props={["radius", "shadow"]}>
-        <ToolbarItem
-          full={true}
-          propKey="radius"
-          type="slider"
-          label="Radius"
-        />
-        <ToolbarItem
-          full={true}
-          propKey="shadow"
-          type="slider"
-          label="Shadow"
-        />
+        <ToolbarItem full={true} propKey="radius" type="slider" label="Radius" />
+        <ToolbarItem full={true} propKey="shadow" type="slider" label="Shadow" />
       </ToolbarSection>
       <ToolbarSection title="Alignment">
-        <ToolbarItem
-          propKey="alignItems"
-          type="radio"
-          label="Align Items"
-          // full={true}
-        >
+        <ToolbarItem propKey="alignItems" type="radio" full={true}>
           <AlignItems
             options={[
-              {
-                id: "start",
-                name: "alignItems",
-                value: "flex-start",
-                Icon: <AiOutlineAlignLeft />,
-              },
-              {
-                id: "center",
-                name: "alignItems",
-                value: "center",
-                Icon: <AiOutlineAlignCenter />,
-              },
-              {
-                id: "end",
-                name: "alignItems",
-                value: "flex-end",
-                Icon: <AiOutlineAlignRight />,
-              },
+              { id: "start", name: "alignItems", value: "flex-start", Icon: <AiOutlineAlignLeft /> },
+              { id: "center", name: "alignItems", value: "center", Icon: <AiOutlineAlignCenter /> },
+              { id: "end", name: "alignItems", value: "flex-end", Icon: <AiOutlineAlignRight /> },
             ]}
+            title={"Align"}
           />
         </ToolbarItem>
-        <ToolbarItem
-          propKey="justifyContent"
-          type="radio"
-          label="Justify Content"
-          // full={true}
-        >
+        <ToolbarItem propKey="justifyContent" type="radio" full={true}>
           <AlignItems
             options={[
-              {
-                id: "just_start",
-                name: "justifyContent",
-                value: "flex-start",
-                Icon: <AiOutlineAlignLeft />,
-              },
-              {
-                id: "just_center",
-                name: "justifyContent",
-                value: "center",
-                Icon: <AiOutlineAlignCenter />,
-              },
-              {
-                id: "just_end",
-                name: "justifyContent",
-                value: "flex-end",
-                Icon: <AiOutlineAlignRight />,
-              },
+              { id: "just_start", name: "justifyContent", value: "flex-start", Icon: <AiOutlineAlignLeft /> },
+              { id: "just_center", name: "justifyContent", value: "center", Icon: <AiOutlineAlignCenter /> },
+              { id: "just_end", name: "justifyContent", value: "flex-end", Icon: <AiOutlineAlignRight /> },
             ]}
+            title={"Justify"}
           />
         </ToolbarItem>
       </ToolbarSection>

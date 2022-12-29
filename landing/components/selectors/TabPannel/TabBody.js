@@ -82,11 +82,7 @@ export const TabBody = () => {
         >
           <img
             src={item.img}
-            style={{
-              width: "100%",
-              margin: "10px 0px",
-              cursor: "pointer",
-            }}
+            style={{ width: "100%", margin: "10px 0px", cursor: "pointer" }}
             className="blockColumn"
           />
         </div>

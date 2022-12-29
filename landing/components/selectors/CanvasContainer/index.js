@@ -1,4 +1,4 @@
-import { useEditor, useNode } from "@craftjs/core";
+import { useNode } from "@craftjs/core";
 import React from "react";
 import { CanvasContainerSettings } from "./CanvasContainerSettings";
 
@@ -13,13 +13,11 @@ export const CanvasContainer = (props) => {
 
   return (
     <table
-      // ref={(ref) => connect(drag(ref))}
       ref={connect}
       style={{
         justifyContent,
         flexDirection,
         alignItems,
-        // minHeight,
         background: `rgba(${Object.values(background)})`,
         color: `rgba(${Object.values(color)})`,
         margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
@@ -31,14 +29,7 @@ export const CanvasContainer = (props) => {
         width: "600px",
       }}
     >
-      <div
-        style={{
-          // padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
-          padding: `20px 20px 20px 20px`,
-          alignItems,
-          justifyContent,
-        }}
-      >
+      <div style={{ padding: `20px 20px 20px 20px`, alignItems, justifyContent }}>
         {children}
       </div>
     </table>
