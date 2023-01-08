@@ -32,19 +32,19 @@ const Indicators = styled.div`
     border: 2px solid #36a9e0;
     &:nth-child(1) {
       ${(props) =>
-        props.bound
-          ? props.bound === "row"
-            ? `
+    props.bound
+      ? props.bound === "row"
+        ? `
                 left: 50%;
                 top: -5px;
                 transform:translateX(-50%);
               `
-            : `
+        : `
               top: 50%;
               left: -5px;
               transform:translateY(-50%);
             `
-          : `
+      : `
               left: -5px;
               top:-5px;
             `}
@@ -56,19 +56,19 @@ const Indicators = styled.div`
     }
     &:nth-child(3) {
       ${(props) =>
-        props.bound
-          ? props.bound === "row"
-            ? `
+    props.bound
+      ? props.bound === "row"
+        ? `
                 left: 50%;
                 bottom: -5px;
                 transform:translateX(-50%);
               `
-            : `
+        : `
                 bottom: 50%;
                 left: -5px;
                 transform:translateY(-50%);
               `
-          : `
+      : `
               left: -5px;
               bottom:-5px;
             `}
@@ -116,10 +116,7 @@ export const Resizer = ({ propKey, children, ...props }) => {
   const nodeDimensions = useRef(null);
   nodeDimensions.current = { width: nodeWidth, height: nodeHeight };
 
-  const [internalDimensions, setInternalDimensions] = useState({
-    width: nodeWidth,
-    height: nodeHeight,
-  });
+  const [internalDimensions, setInternalDimensions] = useState({ width: nodeWidth, height: nodeHeight });
 
   const updateInternalDimensionsInPx = useCallback(() => {
     const { width: nodeWidth, height: nodeHeight } = nodeDimensions.current;
@@ -127,18 +124,16 @@ export const Resizer = ({ propKey, children, ...props }) => {
     const width = percentToPx(
       nodeWidth,
       resizable.current &&
-        getElementDimensions(resizable.current.resizable.parentElement).width
+      getElementDimensions(resizable.current.resizable.parentElement).width
     );
     const height = percentToPx(
       nodeHeight,
       resizable.current &&
-        getElementDimensions(resizable.current.resizable.parentElement).height
+      getElementDimensions(resizable.current.resizable.parentElement).height
     );
 
-    setInternalDimensions({
-      width,
-      height,
-    });
+    setInternalDimensions(
+      { width, height });
   }, []);
 
   const updateInternalDimensionsWithOriginal = useCallback(() => {
@@ -177,18 +172,9 @@ export const Resizer = ({ propKey, children, ...props }) => {
 
   return (
     <Resizable
-      enable={[
-        "top",
-        "left",
-        "bottom",
-        "right",
-        "topLeft",
-        "topRight",
-        "bottomLeft",
-        "bottomRight",
-      ].reduce((acc, key) => {
+      enable={["top", "left", "bottom", "right", "topLeft", "topRight", "bottomLeft", "bottomRight"].reduce((acc, key) => {
         acc[key] = active && inNodeContext;
-        return acc;
+        return acc
       }, {})}
       className={cx([
         {

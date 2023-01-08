@@ -3,7 +3,7 @@ import { ToolbarSection, ToolbarItem } from "../../editor";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
 import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
 import { FileUpload } from "../../editor/Toolbar/FileUpload"
-
+import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
 
 const ImageContainerSettings = ({ handleUploader }) => {
@@ -38,6 +38,10 @@ const ImageContainerSettings = ({ handleUploader }) => {
         <ToolbarItem full={true} propKey="shadow" type="slider" label="Shadow" />
       </ToolbarSection>
       <ToolbarSection title="Alignment">
+        <ToolbarItem propKey="flexDirection" type="radio" label="Flex Direction" full={true}>
+          <ToolbarRadio value="row" label="Row" />
+          <ToolbarRadio value="column" label="Column" />
+        </ToolbarItem>
         <ToolbarItem propKey="alignItems" type="radio" full={true}>
           <AlignItems
             options={[

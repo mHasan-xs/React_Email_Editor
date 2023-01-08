@@ -2,9 +2,7 @@ import React from "react";
 import ImageSettings from "./ImageSettings";
 import { useNode } from "@craftjs/core";
 
-// let previousImage = "/image/defualt.jpg";
-let previousImage =
-  "https://img.freepik.com/premium-photo/image-planet-outer-space-mixed-media-elements-image-furnished-by-nasa_641298-3434.jpg";
+let previousImage = "https://i.ibb.co/z628wYs/defualt.jpg";
 
 export const CustomeImage = (props, e) => {
   const { picture } = props;

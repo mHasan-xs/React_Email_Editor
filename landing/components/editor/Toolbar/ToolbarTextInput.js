@@ -45,14 +45,7 @@ const useLabelStyles = makeStyles({
 //   onChange?: (value: any) => void;
 //   value?: any;
 // };
-export const ToolbarTextInput = ({
-  onChange,
-  value,
-  prefix,
-  label,
-  type,
-  ...props
-}) => {
+export const ToolbarTextInput = ({ onChange, value, prefix, label, type, ...props }) => {
   const [internalValue, setInternalValue] = useState(value);
   const [active, setActive] = useState(false);
   const classes = useStyles({});
@@ -67,9 +60,7 @@ export const ToolbarTextInput = ({
   return (
     <div
       style={{ width: "100%", position: "relative" }}
-      onClick={() => {
-        setActive(true);
-      }}
+      onClick={() => { setActive(true) }}
     >
       {(type === "color" || type === "bg") && active ? (
         <div

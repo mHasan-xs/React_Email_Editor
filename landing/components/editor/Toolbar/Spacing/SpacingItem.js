@@ -35,12 +35,22 @@ export const SpacingItem = ({ title }) => {
     <>
       <div className="spacing_wrapper">
         <ul>
-          {spacingOption.map((item, index) => (
-            <li key={index}>
-              <input min={0} type="number" name={item.name} id={item.id} onChange={(e) => handleChange(e)} />
-              <p>{item.name}</p>
+
+
+          {show ?
+            <li>
+              <input min={0} type="number" onChange={(e) => handleChange(e)} />
+              <p>{title}</p>
             </li>
-          ))}
+            :
+            spacingOption.map((item, index) => (
+              <li key={index}>
+                <input min={0} type="number" name={item.name} id={item.id} onChange={(e) => handleChange(e)} />
+                <p>{item.name}</p>
+              </li>
+            ))
+          }
+
 
           <li onClick={handleButton} className={show ? "spacing_wrapper_button_active" : "spacing_wrapper_button"}>
             <BsLink45Deg />

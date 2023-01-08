@@ -13,27 +13,13 @@ export const TimerSettings = ({ handleTime }) => {
         <DateAndTimePicker handleTime={handleTime} />
       </ToolbarSection>
       <ToolbarSection title="Container">
-        <ToolbarItem
-          full={true}
-          propKey="width"
-          type="slider"
-          label="Container width"
-        />
+        <ToolbarItem full={true} propKey="width" type="slider" label="Container width" />
       </ToolbarSection>
       <ToolbarSection title="Colors" props={["background", "color"]}>
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
         <ToolbarItem full={true} propKey="color" type="color" label="Text" />
       </ToolbarSection>
-      <ToolbarSection
-        title="Typography"
-        props={["fontSize", "fontWeight", "textAlign"]}
-
-      >
+      <ToolbarSection title="Typography" props={["fontSize", "fontWeight", "textAlign"]}>
         <ToolbarItem propKey="textAlign" type="radio" full={true}>
           <TextAlignment
             options={[

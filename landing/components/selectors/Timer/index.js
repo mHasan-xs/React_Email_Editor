@@ -20,7 +20,6 @@ const Timer = ({ expiryTimestamp, fontSize, justifyContent }) => {
         justifyContent: "space-between",
         alignItems: "center",
         flexWrap: "wrap",
-        // padding: `${AccessPadding[0]}px ${AccessPadding[1]}px ${AccessPadding[2]}px ${AccessPadding[3]}px`,
         padding: `${AccessPadding?.Top}px ${AccessPadding?.Right}px ${AccessPadding?.Bottom}px ${AccessPadding?.Left}px`,
       }}
     >

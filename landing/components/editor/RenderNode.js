@@ -6,7 +6,7 @@ import styled from "styled-components";
 import ArrowUp from "../../public/icons/arrow-up.svg";
 import Delete from "../../public/icons/delete.svg";
 import Move from "../../public/icons/move.svg";
-import { CopySvg } from "../../public/icons/myIcon/CopySvg";
+// import { CopySvg } from "../../public/icons/myIcon/CopySvg";
 
 const IndicatorDiv = styled.div`
   height: 30px;
@@ -91,9 +91,9 @@ export const RenderNode = ({ render }) => {
     };
   }, [scroll]);
 
-  const handleCopy = (id) => {
-    console.log(id, "something");
-  };
+  // const handleCopy = (id) => {
+  //   console.log(id, "something");
+  // };
 
 
   return (
@@ -105,7 +105,6 @@ export const RenderNode = ({ render }) => {
             className="px-2 py-2 text-white bg-primary fixed flex items-center"
             style={{
               left: getPos(dom).left,
-              // left: '740px',
               top: getPos(dom).top,
               zIndex: 9999,
               borderRadius: '4px 4px 0px 0px'
@@ -140,7 +139,7 @@ export const RenderNode = ({ render }) => {
                 </Btn>
               </>
             ) : null}
-            {id !== ROOT_NODE &&
+            {/* {id !== ROOT_NODE &&
               <Btn
                 className="cursor-pointer"
                 onClick={(e) => {
@@ -150,7 +149,7 @@ export const RenderNode = ({ render }) => {
               >
                 <CopySvg />
               </Btn>
-            }
+            } */}
 
           </IndicatorDiv>,
           document.querySelector(".page-container")

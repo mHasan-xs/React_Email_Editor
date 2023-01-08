@@ -2,9 +2,6 @@ import React from "react";
 import { FormControlLabel, Radio } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
-import { AiOutlineAlignRight } from "react-icons/ai";
-import { AiOutlineAlignLeft } from "react-icons/ai";
-import { AiOutlineAlignCenter } from "react-icons/ai";
 
 const useStyles = makeStyles({
   icon: {

@@ -19,10 +19,10 @@ import { ColumnFour } from "components/selectors/column/ColumnFour";
 import { ColumnFive } from "components/selectors/column/ColumnFive";
 import { ColumnSix } from "components/selectors/column/ColumnSix";
 import { ImageComponent } from "components/selectors/ImageComponent";
-import { TabBody } from "../components/selectors/TabPannel/TabBody";
+// import { TabBody } from "../components/selectors/TabPannel/TabBody";
 import { TopTabPanel } from "../components/selectors/TabPannel/TopTabPanel";
-import TabPannel from "../components/selectors/TabPannel/TabPanel";
-import { List } from "components/selectors/List";
+// import TabPannel from "../components/selectors/TabPannel/TabPanel";
+// import { List } from "components/selectors/List";
 import { CanvasContainer } from "components/selectors/CanvasContainer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,13 +31,7 @@ import store from "../rtk/app/store"
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: [
-      "acumin-pro",
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-    ].join(","),
+    fontFamily: ["acumin-pro", "Roboto", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
   },
 });
 
@@ -46,11 +40,7 @@ const App = () => {
   const [show, setShow] = useState(false);
 
   // Set Asynchronous function for Render Draft UI
-  const isTrue = () => {
-    setTimeout(() => {
-      setShow(true);
-    }, 500);
-  };
+  const isTrue = () => { setTimeout(() => { setShow(true) }, 500) };
 
   //GET DRAFT DATA FROM SERVER
   useEffect(() => {

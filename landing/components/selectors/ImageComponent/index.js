@@ -3,8 +3,7 @@ import { useNode } from "@craftjs/core";
 import ImageComponentSetting from "./ImageComponentSetting";
 
 export const ImageComponent = (props) => {
-  let previousImage =
-    "https://img.freepik.com/premium-photo/image-planet-outer-space-mixed-media-elements-image-furnished-by-nasa_641298-3434.jpg";
+  let previousImage = "https://i.ibb.co/z628wYs/defualt.jpg";
 
   const { image, Margin, shadow, width, height } = props;
 

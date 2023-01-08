@@ -1,23 +1,7 @@
 import React from "react";
 
 const ListStyle = ({ title, value, onchange }) => {
-  const listStyles = [
-    "none",
-    "disc",
-    "circle",
-    "square",
-    "decimal",
-    "decimal-leading-zero",
-    "lower-roman",
-    "upper-roman",
-    "lower-greek",
-    "lower-latin",
-    "upper-latin",
-    "armenian",
-    "georgian",
-    "lower-alpha",
-    "upper-alpha",
-  ];
+  const listStyles = ["none", "disc", "circle", "square", "decimal", "decimal-leading-zero", "lower-roman", "upper-roman", "lower-greek", "lower-latin", "upper-latin", "armenian", "georgian", "lower-alpha", "upper-alpha"];
 
   return (
     <>

@@ -5,7 +5,7 @@ import { Resizable } from "re-resizable";
 import ColumnNoContent from "./ColumnNoContent";
 
 export const Column = (props) => {
-  const { children, columnContainer: ColumnContainer, background, color, Padding, Margin, picture, BorderType, radius } = props;
+  const { children, columnContainer: ColumnContainer, background: Background, color, Padding, Margin, picture, BorderType, radius } = props;
   const BorderStyle = { BorderType, radius, color };
 
   const { connectors: { connect, drag } } = useNode((node) => ({
@@ -18,7 +18,7 @@ export const Column = (props) => {
         <ColumnContainer
           children={children}
           BackgroundPicture={picture}
-          Background={background}
+          Background={Background}
           BorderStyle={BorderStyle}
           PaddingStyle={Padding}
           Margin={Margin}
@@ -37,7 +37,7 @@ export const Column = (props) => {
                 width: "100%",
                 textAlign: "center",
                 padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
-                background: `${background ? `rgba(${Object.values(background)})` : ""
+                background: `${Background ? `rgba(${Object.values(Background)})` : ""
                   }`,
                 backgroundImage: `url(${picture || ""})`,
                 backgroundSize: "cover",
