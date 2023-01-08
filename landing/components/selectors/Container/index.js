@@ -3,23 +3,8 @@ import { ContainerSettings } from "./ContainerSettings";
 import { Resizer } from "../Resizer";
 
 export const Container = (props) => {
-  props = {
-    ...defaultProps,
-    ...props,
-  };
-  const {
-    flexDirection,
-    alignItems,
-    justifyContent,
-    fillSpace,
-    background,
-    color,
-    shadow,
-    radius,
-    children,
-    Margin,
-    Padding,
-  } = props;
+  props = { ...defaultProps, ...props };
+  const { flexDirection, alignItems, justifyContent, fillSpace, background, color, shadow, radius, children, Margin, Padding, } = props;
 
   return (
     <>

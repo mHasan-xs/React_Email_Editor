@@ -22,11 +22,7 @@ export const ButtonAction = ({ title, value, onChange }) => {
         <div style={{ width: "250px" }}>
           <input
             style={{
-              padding: "4px 10px",
-              outline: "none",
-              border: " 1px solid gray",
-              fontSize: '12px',
-              width: "94%"
+              padding: "4px 10px", outline: "none", border: " 1px solid gray", fontSize: '12px', width: "94%"
             }}
             type="text"
             placeholder="Enter Link"

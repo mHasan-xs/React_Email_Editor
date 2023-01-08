@@ -2,7 +2,7 @@ import React from "react";
 import { ToolbarSection, ToolbarItem } from "../../editor";
 import { ToolbarRadio } from "../../editor/Toolbar/ToolbarRadio";
 import { SpacingItem } from "../../editor/Toolbar/Spacing/SpacingItem";
-import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
+// import { AlignItems } from "../../editor/Toolbar/Alignment/AlignItems";
 import { TextAlignment } from "../../editor/Toolbar/TextAlignment"
 import { DropdownMenu } from "../../editor/Toolbar/Dropdown/DropdownMenu"
 import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "react-icons/ai";
@@ -11,12 +11,7 @@ export const ButtonSettings = () => {
   return (
     <>
       <ToolbarSection title="Colors" props={["background", "color"]}>
-        <ToolbarItem
-          full={true}
-          propKey="background"
-          type="bg"
-          label="Background"
-        />
+        <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
         <ToolbarItem full={true} propKey="color" type="color" label="Text" />
       </ToolbarSection>
       <ToolbarSection title="Decoration">
@@ -25,10 +20,6 @@ export const ButtonSettings = () => {
           <ToolbarRadio value="outline" label="Outline" />
         </ToolbarItem>
       </ToolbarSection>
-
-      {/* <ToolbarSection title="Dimensions" props={["radius", "width"]}>
-        <ToolbarItem full={true} propKey="width" type="slider" label="width" />
-      </ToolbarSection> */}
       <ToolbarSection
         title="Typography"
         props={["fontSize", "fontWeight", "textAlign"]}
@@ -100,9 +91,6 @@ export const ButtonSettings = () => {
           <SpacingItem title="Padding" />
         </ToolbarItem>
       </ToolbarSection>
-      {/* <ToolbarSection title="Padding" props={["padding"]}>
-      </ToolbarSection> */}
-      {/* </ToolbarSection> */}
       <ToolbarSection title="Actions">
         <ToolbarItem propKey="action" type="setLink" label="Set Action" />
       </ToolbarSection>

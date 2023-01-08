@@ -31,10 +31,7 @@ export const ContainerSettings = () => {
                 }}
                 className="shadow-md flex-end w-6 h-6 text-center flex items-center rounded-full bg-black"
               >
-                <p
-                  style={{
-                    color: color && `rgba(${Object.values(color)})`,
-                  }}
+                <p style={{ color: color && `rgba(${Object.values(color)})` }}
                   className="text-white w-full text-center"
                 >
                   T

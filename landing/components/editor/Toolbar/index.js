@@ -20,7 +20,7 @@ export const Toolbar = () => {
   return (
     <div className="py-1 h-full">
       {active && related.toolbar && React.createElement(related.toolbar)}
-      {/* {!active && (
+      {!active && (
         <div
           className="px-5 py-2 flex flex-col items-center h-full justify-center text-center"
           style={{
@@ -29,12 +29,9 @@ export const Toolbar = () => {
           }}
         >
           <h2 className="pb-1">Click on a component to start editing.</h2>
-          <h2>
-            You could also double click on the layers below to edit their names,
-            like in Photoshop
-          </h2>
+
         </div>
-      )} */}
+      )}
     </div>
   );
 };

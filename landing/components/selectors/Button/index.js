@@ -35,22 +35,12 @@ export const Button = (props) => {
         style={{
           border: " 2px solid transparent",
           cursor: "pointer",
-          // background: ` ${buttonStyle === "full"
-          //   ? `rgba(${Object.values(props.background)})`
-          //   : "transparent"
-          //   }`,
           boxShadow: `${buttonStyle == "outline" ? `0px 0px 2px 0px gray` : "transparent"
             }`,
         }}
       >
         <tr>
-          <td
-            style={{
-              // padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
-              width: '100px',
-              textAlign: `${TextAlign}`
-            }}
-          >
+          <td style={{ width: '100px', textAlign: `${TextAlign}` }}>
             <a
               href={action ? action : "#"}
               style={{ textDecoration: "none", fontSize: `${fontSize}px` }}
