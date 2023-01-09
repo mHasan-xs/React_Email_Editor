@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { axiosInstance } from "../../../helpers/Axios"
 import { useEditor } from "@craftjs/core";
 import cx from "classnames";
 import styled from "styled-components";
@@ -33,21 +33,6 @@ const Btn = styled.a`
   }
 `;
 
-// const Item = styled.a`
-//   margin-right: 10px;
-//   cursor: pointer;
-//   svg {
-//     width: 20px;
-//     height: 20px;
-//     fill: #707070;
-//   }
-//   ${(props) =>
-//     props.disabled &&
-//     `
-//     opacity:0.5;
-//     cursor: not-allowed;
-//   `}
-// `;
 
 export const Header = ({ htmlExport }) => {
   const { query } = useEditor();
@@ -75,7 +60,8 @@ export const Header = ({ htmlExport }) => {
       console.log(htmlData, "export");
 
       try {
-        await axios.post("http://localhost:9000/data", {
+        await axiosInstance.post("data", {
+          id: "",
           html: htmlData,
           object: editorState,
         });

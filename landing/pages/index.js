@@ -1,8 +1,8 @@
-import React, { useState, useEffect, Children } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { axiosInstance } from "../helpers/Axios";
 import { Editor, Frame, Element } from "@craftjs/core";
-import { createMuiTheme } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+// import { createMuiTheme } from "@material-ui/core";
+// import { ThemeProvider } from "@material-ui/core/styles";
 import { Viewport, RenderNode } from "../components/editor";
 import { Container, Text } from "../components/selectors";
 import { Button } from "../components/selectors/Button";
@@ -29,11 +29,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Provider } from 'react-redux'
 import store from "../rtk/app/store"
 
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ["acumin-pro", "Roboto", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
-  },
-});
+
+
+// const theme = createMuiTheme({
+//   typography: {
+//     fontFamily: ["acumin-pro", "Roboto", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
+//   },
+// });
 
 const App = () => {
   const [showDraft, setShowDraft] = useState("");
@@ -42,10 +44,12 @@ const App = () => {
   // Set Asynchronous function for Render Draft UI
   const isTrue = () => { setTimeout(() => { setShow(true) }, 500) };
 
+
+
   //GET DRAFT DATA FROM SERVER
   useEffect(() => {
     const fatchData = async () => {
-      await axios.get(`http://localhost:9000/data`).then((res) => {
+      await axiosInstance.get("data").then((res) => {
         const draft = res.data;
         setShowDraft(draft.object);
       });
@@ -54,72 +58,53 @@ const App = () => {
     isTrue();
   }, [showDraft]);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <div className=" h-screen">
-          <Editor
-            resolver={{
-              Container,
-              Text,
-              Button,
-              CustomeImage,
-              Divider,
-              CountDownTimer,
-              SocialIcon,
-              VideoBlock,
-              Column,
-              ImageComponent,
-              CanvasContainer,
-              // List,
-              ColumnOne,
-              ColumnTwo,
-              ColumnThree,
-              ColumnFour,
-              ColumnFive,
-              ColumnSix,
-              // TabBody,
-              // TabPannel,
-              TopTabPanel,
-            }}
-            enabled={false}
-            onRender={RenderNode}
-          >
-            {/* Toast for show error and success alert */}
-            <ToastContainer
-              position="top-right"
-              autoClose={2000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
-            <Viewport>
-              {show && (
-                <Frame data={showDraft}>
 
-                  <Element
-                    canvas
-                    is={CanvasContainer}
-                    width="600px"
-                    // height="auto"
-                    minHeight="300px"
-                    background={{ r: 255, g: 255, b: 255, a: 1 }}
-                    color={{ r: 0, g: 0, b: 0, a: 1 }}
-                    padding={["0", "20", "0", "20"]}
-                    custom={{ displayName: "App" }}
-                  ></Element>
-                </Frame>
-              )}
-            </Viewport>
-          </Editor>
-        </div>
-      </Provider>
-    </ThemeProvider >
+
+  return (
+    // <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <div className=" h-screen">
+        <Editor
+          resolver={{
+            Container, Text, Button, CustomeImage, Divider, CountDownTimer,
+            SocialIcon, VideoBlock, Column, ImageComponent, CanvasContainer, TopTabPanel,
+            ColumnOne, ColumnTwo, ColumnThree, ColumnFour, ColumnFive, ColumnSix,
+            // List,// TabBody,// TabPannel,
+          }}
+          enabled={false}
+          onRender={RenderNode}
+        >
+          {/* Toast for show error and success alert */}
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnHover
+            theme="light"
+          />
+          <Viewport>
+            {show && (
+              <Frame data={showDraft}>
+                <Element
+                  canvas
+                  is={CanvasContainer}
+                  width="600px"
+                  minHeight="300px"
+                  background={{ r: 255, g: 255, b: 255, a: 1 }}
+                  color={{ r: 0, g: 0, b: 0, a: 1 }}
+                  padding={["0", "20", "0", "20"]}
+                  custom={{ displayName: "App" }}
+                ></Element>
+              </Frame>
+            )}
+          </Viewport>
+        </Editor>
+      </div>
+    </Provider>
+    // </ThemeProvider >
   );
 };
 

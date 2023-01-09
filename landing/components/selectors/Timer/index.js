@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNode } from "@craftjs/core";
 import { useTimer } from "react-timer-hook";
 import { TimerSettings } from "./TimerSettings";
@@ -75,23 +75,9 @@ export const CountDownTimer = (props) => {
   };
   handleTime = handleTimeChanng;
 
-  const {
-    fontSize,
-    Margin,
-    Padding,
-    fontWeight,
-    background,
-    color,
-    textAlign,
-    width,
-    justifyContent,
-    TextAlign,
-    TextSize
-  } = props;
+  const { Margin, Padding, fontWeight, background, color, width, justifyContent, TextAlign, TextSize } = props;
 
   AccessPadding = Padding;
-
-  console.log(props.TextSize)
 
   // Set Time
   const time = new Date();
