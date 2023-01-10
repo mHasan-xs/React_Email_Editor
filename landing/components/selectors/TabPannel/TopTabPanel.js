@@ -59,7 +59,7 @@ export const TopTabPanel = (props) => {
 
 
   return (
-    <Box style={{ position: "relative", display: enabled ? "block" : "none", width: "300px", }}>
+    <Box style={{ position: "relative", display: enabled ? "block" : "none", width: "310px", }}>
       <div style={sidebarHeader}>
         <div>
           <p style={{ fontSize: "14px" }}>Widgets</p>

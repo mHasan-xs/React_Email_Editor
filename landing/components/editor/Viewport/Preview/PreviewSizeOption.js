@@ -3,12 +3,12 @@ import { responsive } from "../../../../rtk/features/Preview/PreviewResonsiveSli
 import { useDispatch } from 'react-redux';
 
 const SizeMenuItems = [
-    { id: 1, name: "MacBook", width: '1152px' },
-    { id: 2, name: "iMac", width: '1260px' },
-    { id: 3, name: "iPad", width: '768px' },
-    { id: 4, name: "iPad Pro", width: '1260px' },
-    { id: 5, name: "iPhone 11", width: '414px' },
-    { id: 6, name: "Android", width: '340px' },
+    { id: 1, name: "MacBook", width: '1132px' },
+    { id: 2, name: "iMac", width: '1240px' },
+    { id: 3, name: "iPad", width: '748px' },
+    { id: 4, name: "iPad Pro", width: '1240px' },
+    { id: 5, name: "iPhone 11", width: '396px' },
+    { id: 6, name: "Android", width: '320px' },
 ]
 
 export const PreviewSize = () => {

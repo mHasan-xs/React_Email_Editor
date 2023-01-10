@@ -37,8 +37,7 @@ export const Column = (props) => {
                 width: "100%",
                 textAlign: "center",
                 padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
-                background: `${Background ? `rgba(${Object.values(Background)})` : ""
-                  }`,
+                background: `${Background ? `rgba(${Object.values(Background)})` : ""}`,
                 backgroundImage: `url(${picture || ""})`,
                 backgroundSize: "cover",
                 backgroundPosition: "top",

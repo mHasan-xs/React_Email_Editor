@@ -60,11 +60,8 @@ export const Header = ({ htmlExport }) => {
       console.log(htmlData, "export");
 
       try {
-        await axiosInstance.post("data", {
-          id: "",
-          html: htmlData,
-          object: editorState,
-        });
+        // await axiosInstance.post("emailkit/wp-json/Emailkit/v1/template-data/", { id: "", html: htmlData, object: editorState })
+        await axiosInstance.post("data", { id: "", html: htmlData, object: editorState });
       } catch (error) {
         console.log(error.massage);
       }

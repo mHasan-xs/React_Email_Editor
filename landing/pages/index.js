@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance } from "../helpers/Axios";
 import { Editor, Frame, Element } from "@craftjs/core";
-// import { createMuiTheme } from "@material-ui/core";
-// import { ThemeProvider } from "@material-ui/core/styles";
 import { Viewport, RenderNode } from "../components/editor";
 import { Container, Text } from "../components/selectors";
 import { Button } from "../components/selectors/Button";
@@ -19,23 +17,13 @@ import { ColumnFour } from "components/selectors/column/ColumnFour";
 import { ColumnFive } from "components/selectors/column/ColumnFive";
 import { ColumnSix } from "components/selectors/column/ColumnSix";
 import { ImageComponent } from "components/selectors/ImageComponent";
-// import { TabBody } from "../components/selectors/TabPannel/TabBody";
 import { TopTabPanel } from "../components/selectors/TabPannel/TopTabPanel";
-// import TabPannel from "../components/selectors/TabPannel/TabPanel";
-// import { List } from "components/selectors/List";
 import { CanvasContainer } from "components/selectors/CanvasContainer";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toastCss from "react-toastify/dist/ReactToastify.css";
 import { Provider } from 'react-redux'
 import store from "../rtk/app/store"
 
-
-
-// const theme = createMuiTheme({
-//   typography: {
-//     fontFamily: ["acumin-pro", "Roboto", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
-//   },
-// });
 
 const App = () => {
   const [showDraft, setShowDraft] = useState("");
@@ -44,11 +32,10 @@ const App = () => {
   // Set Asynchronous function for Render Draft UI
   const isTrue = () => { setTimeout(() => { setShow(true) }, 500) };
 
-
-
   //GET DRAFT DATA FROM SERVER
   useEffect(() => {
     const fatchData = async () => {
+      // await axiosInstance.get("emailkit/wp-json/Emailkit/v1/fetch-data/")
       await axiosInstance.get("data").then((res) => {
         const draft = res.data;
         setShowDraft(draft.object);
@@ -61,7 +48,6 @@ const App = () => {
 
 
   return (
-    // <ThemeProvider theme={theme}>
     <Provider store={store}>
       <div className=" h-screen">
         <Editor
@@ -104,7 +90,6 @@ const App = () => {
         </Editor>
       </div>
     </Provider>
-    // </ThemeProvider >
   );
 };
 

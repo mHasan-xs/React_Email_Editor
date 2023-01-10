@@ -8,7 +8,7 @@ import LayerIcon from "../../../../public/icons/layers.svg";
 import { Toolbar } from "../../Toolbar";
 
 export const SidebarDiv = styled.div`
-  width: 300px;
+  width: 310px;
   opacity: ${(props) => (props.enabled ? 1 : 0)};
   background: #fff;
   height: 100%;

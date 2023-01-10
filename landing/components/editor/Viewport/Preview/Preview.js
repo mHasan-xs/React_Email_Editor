@@ -9,9 +9,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const ResponsiveOptions = [
-  { id: 1, title: "Desktop", icon: AiOutlineDesktop, size: '1260px' },
-  { id: 2, title: "Tablet", icon: AiOutlineTablet, size: '768px' },
-  { id: 3, title: "Mobile", icon: AiOutlineMobile, size: '364px' },
+  { id: 1, title: "Desktop", icon: AiOutlineDesktop, size: '1240px' },
+  { id: 2, title: "Tablet", icon: AiOutlineTablet, size: '748px' },
+  { id: 3, title: "Mobile", icon: AiOutlineMobile, size: '344px' },
 ]
 
 
@@ -49,7 +49,7 @@ export const Preview = ({ htmlData }) => {
 
           <div style={headerBottom}></div>
           <div style={{ width: `${previewDrop}`, margin: '0 auto', boxShadow: "0px 0px 1px 0px black", paddingBottom: '10px', minHeight: '450px', }}>
-            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0px 10px' }}>
               <div dangerouslySetInnerHTML={{ __html: outerData }} />
             </div>
           </div>

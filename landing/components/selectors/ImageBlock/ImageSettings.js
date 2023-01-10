@@ -23,10 +23,10 @@ const ImageContainerSettings = ({ handleUploader }) => {
         <ToolbarItem propKey="width" type="text" label="Width" />
         <ToolbarItem propKey="height" type="text" label="Height" />
       </ToolbarSection>
-      <ToolbarSection title="Colors" props={["background", "color"]}>
+      {/* <ToolbarSection title="Colors" props={["background", "color"]}>
         <ToolbarItem full={true} propKey="background" type="bg" label="Background" />
         <ToolbarItem full={true} propKey="color" type="color" label="Text" />
-      </ToolbarSection>
+      </ToolbarSection> */}
       <ToolbarSection title="Margin" props={["margin"]}>
         <SpacingItem title="Margin" />
       </ToolbarSection>

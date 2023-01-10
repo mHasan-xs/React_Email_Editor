@@ -2,21 +2,17 @@ import React from "react";
 import ImageSettings from "./ImageSettings";
 import { useNode } from "@craftjs/core";
 
-let previousImage = "https://i.ibb.co/z628wYs/defualt.jpg";
 
 export const CustomeImage = (props, e) => {
   const { picture } = props;
+  let previousImage = "https://i.ibb.co/z628wYs/defualt.jpg";
 
   const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 
-  props = {
-    ...defaultProps,
-    ...props,
-  };
-
-  const { flexDirection, alignItems, justifyContent, color, Padding, Margin, shadow, children, width, minHeight, backgroundSize } = props;
+  props = { ...defaultProps, ...props };
+  const { flexDirection, background, alignItems, justifyContent, color, Padding, Margin, shadow, children, width, minHeight, backgroundSize } = props;
 
   return (
     <table
@@ -33,6 +29,7 @@ export const CustomeImage = (props, e) => {
         display: "flex",
         alignItems,
         backgroundImage: `url(${picture ? picture : previousImage})`,
+        // background: `${background ? `rgba(${Object.values(background)})` : ""}`,
         color: `rgba(${Object.values(color)})`,
         padding: `${Padding?.Top}px ${Padding?.Right}px ${Padding?.Bottom}px ${Padding?.Left}px`,
         margin: `${Margin?.Top}px ${Margin?.Right}px ${Margin?.Bottom}px ${Margin?.Left}px`,
@@ -66,12 +63,11 @@ const defaultProps = {
   fillSpace: "no",
   padding: ["0", "0", "0", "0"],
   margin: ["0", "0", "0", "0"],
-  background: { r: 255, g: 255, b: 255, a: 1 },
+  background: { r: 0, g: 0, b: 0, a: 1 },
   color: { r: 0, g: 0, b: 0, a: 1 },
   shadow: 0,
   radius: 0,
   width: "100%",
-  minHeight: "300px",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 };
