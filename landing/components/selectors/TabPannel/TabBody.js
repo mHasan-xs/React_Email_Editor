@@ -1,6 +1,5 @@
 import React from "react";
 import { useEditor } from "@craftjs/core";
-
 // ====== IMPORT FOR COLUMN ========
 import { ColumnOne } from "../column/ColumnOne";
 import { ColumnTwo } from "../column/ColumnTwo";
@@ -9,9 +8,6 @@ import { ColumnFour } from "../column/ColumnFour";
 import { ColumnFive } from "../column/ColumnFive";
 import { ColumnSix } from "../column/ColumnSix";
 
-import { Column } from "../column/index"
-
-// import { Column } from "../column"
 
 // =========== COLUMN =============
 const ColumnItems = [
@@ -19,45 +15,42 @@ const ColumnItems = [
     id: 1,
     name: "ColumnOne",
     column: ColumnOne,
-    img: " /image/ColumnOne.jpg",
+    img: "https://i.ibb.co/yPqDP3P/Column-One.jpg",
   },
   {
     id: 2,
     name: "Column Two",
     column: ColumnTwo,
-    img: "/image/ColumnTwo.jpg",
+    img: "https://i.ibb.co/jvBtxvh/Column-Two.jpg",
   },
   {
     id: 3,
     name: "Column Three",
     column: ColumnThree,
-    img: "/image/ColumnThree.jpg",
+    img: "https://i.ibb.co/D7HW3W4/Column-Three.jpg",
   },
   {
     id: 4,
     name: "Column Four",
     column: ColumnFour,
-    img: "/image/ColumnFour.jpg",
+    img: "https://i.ibb.co/MZGWXRq/Column-Four.jpg",
   },
   {
     id: 5,
     name: "Column Five",
     column: ColumnFive,
-    img: "/image/ColumnFive.jpg",
+    img: "https://i.ibb.co/vdgbX9q/Column-Five.jpg",
   },
   {
     id: 6,
     name: "Column Six",
     column: ColumnSix,
-    img: "/image/ColumnSix.jpg",
+    img: "https://i.ibb.co/K6w6tyr/Column-Six.jpg",
   },
 ];
 
 export const TabBody = () => {
-  const {
-    enabled,
-    connectors: { create },
-  } = useEditor((state) => ({
+  const { enabled, connectors: { create } } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
   return (

@@ -17,36 +17,12 @@ import { AiOutlineAlignRight, AiOutlineAlignLeft, AiOutlineAlignCenter } from "r
 import { DropdownMenu } from "../../editor/Toolbar/Dropdown/DropdownMenu"
 
 const intialColumn = [
-  {
-    id: 1,
-    column: ColumnOne,
-    img: "https://i.ibb.co/yPqDP3P/Column-One.jpg",
-  },
-  {
-    id: 2,
-    column: ColumnTwo,
-    img: "https://i.ibb.co/jvBtxvh/Column-Two.jpg",
-  },
-  {
-    id: 3,
-    column: ColumnThree,
-    img: "https://i.ibb.co/D7HW3W4/Column-Three.jpg",
-  },
-  {
-    id: 4,
-    column: ColumnFour,
-    img: "https://i.ibb.co/MZGWXRq/Column-Four.jpg",
-  },
-  {
-    id: 5,
-    column: ColumnFive,
-    img: "https://i.ibb.co/vdgbX9q/Column-Five.jpg",
-  },
-  {
-    id: 6,
-    column: ColumnSix,
-    img: "https://i.ibb.co/K6w6tyr/Column-Six.jpg",
-  },
+  { id: 1, column: ColumnOne, img: "https://i.ibb.co/yPqDP3P/Column-One.jpg" },
+  { id: 2, column: ColumnTwo, img: "https://i.ibb.co/jvBtxvh/Column-Two.jpg" },
+  { id: 3, column: ColumnThree, img: "https://i.ibb.co/D7HW3W4/Column-Three.jpg" },
+  { id: 4, column: ColumnFour, img: "https://i.ibb.co/MZGWXRq/Column-Four.jpg" },
+  { id: 5, column: ColumnFive, img: "https://i.ibb.co/vdgbX9q/Column-Five.jpg" },
+  { id: 6, column: ColumnSix, img: "https://i.ibb.co/K6w6tyr/Column-Six.jpg" },
 ];
 
 export const ColumnSettings = (props) => {

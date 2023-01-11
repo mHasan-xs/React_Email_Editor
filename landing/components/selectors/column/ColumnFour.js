@@ -4,19 +4,10 @@ import { Element, useNode } from "@craftjs/core";
 import { ColumnOne } from "./ColumnOne";
 
 export const ColumnFour = (props) => {
-  const {
-    children,
-    BackgroundPicture,
-    Background,
-    PaddingStyle = [],
-    BorderStyle = "",
-    Margin,
-  } = props;
+  const { children, BackgroundPicture, Background, PaddingStyle = [], BorderStyle = "", Margin } = props;
   const { BorderType, color, radius } = BorderStyle;
 
-  const {
-    connectors: { connect },
-  } = useNode((node) => ({
+  const { connectors: { connect } } = useNode((node) => ({
     selected: node.events.selected,
   }));
 

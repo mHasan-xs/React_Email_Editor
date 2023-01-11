@@ -12,15 +12,16 @@ export const CustomeImage = (props, e) => {
   }));
 
   props = { ...defaultProps, ...props };
-  const { flexDirection, background, alignItems, justifyContent, color, Padding, Margin, shadow, children, width, minHeight, backgroundSize } = props;
+  const { flexDirection, height, alignItems, justifyContent, color, Padding, Margin, shadow, children, width, minHeight, backgroundSize } = props;
 
+  console.log(height)
   return (
     <table
       ref={connect}
       style={{
         borderCollapse: "collapse",
         width,
-        minHeight: "200px",
+        height,
         maxHeight: "auto",
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
@@ -68,6 +69,7 @@ const defaultProps = {
   shadow: 0,
   radius: 0,
   width: "100%",
+  height: "200px",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 };
